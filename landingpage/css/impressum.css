@@ -1,0 +1,42 @@
+body {
+    height: 100%;
+    background: url('../images/bg.png') #0565c0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    color: #000000;
+    font-family: "Agenda Light Cond", Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 50px;
+    font-style: normal;
+    color: #000000;
+    font-weight: normal;
+    text-transform: none;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 32px;
+    font-style: normal;
+    color: #000000;
+    font-weight: normal;
+    text-transform: none;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a,
+a:visited,
+a:hover {
+    color: #1e33be;
+    outline: none;
+}
