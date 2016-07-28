@@ -1,0 +1,10 @@
+.hero-video {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  img.logo {
+    width: 50%;
+    @include pull-right();
+    margin-top: 2rem;
+  }
+}

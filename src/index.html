@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="<%= data.description %>">
+  <meta name="version" content="<%= data.version %>-<%= data.deployVersion %>">
+  <title><%= data.appName %></title>
+  <base href="/">
+  <link rel="stylesheet" href="/css/index.min.css?v=<%= data.version %>-<%= data.deployVersion %>">
+  <%= includes.favicon %>
+  <%= includes.fonts %>
+</head>
+<body>
+<nav class="collapse navbar-expandable-top hidden-md-up" id="navbar-mobile" aria-expanded="false">
+  <div class="bg-inverse p-a-1">
+    <a class="nav-item nav-link" href="#">
+      <span>Tools</span>
+    </a>
+    <a class="nav-item nav-link" href="#">
+      <span>Transformation</span>
+    </a>
+    <a class="nav-item nav-link" href="#">
+      <span>Co-Creation</span>
+    </a>
+    <a class="nav-item nav-link" href="#">
+      <span>Contact</span>
+    </a>
+  </div>
+</nav>
+<nav class="navbar navbar-static-top">
+  <div class="container">
+    <span class="navbar-brand"><img src="/img/rh-logo-vector.svg?v=<%= data.version %>-<%= data.deployVersion %>" alt="<%= data.appName %>" height="60"></span>
+    <div class="nav navbar-nav hidden-sm-down pull-xs-right">
+      <a class="nav-item nav-link" href="#">
+        <span>Tools</span>
+      </a>
+      <a class="nav-item nav-link" href="#">
+        <span>Transformation</span>
+      </a>
+      <a class="nav-item nav-link" href="#">
+        <span>Co-Creation</span>
+      </a>
+      <a class="nav-item nav-link" href="#">
+        <span>Contact</span>
+      </a>
+    </div>
+    <button class="navbar-toggler collapsed hidden-md-up pull-xs-right btn-link" type="button" aria-expanded="false" data-toggle="collapse" data-target="#navbar-mobile">
+      <i class="material-icons">menu</i>
+    </button>
+  </div>
+</nav>
+<header class="hero-video" data-vide-bg="https://s3.eu-central-1.amazonaws.com/rh-web-assets/videos/valley" data-vide-options="posterType: jpg">
+  <div class="container">
+    <img src="/img/rh-logo-white.svg" alt="Resourceful Humans GmbH" class="logo">
+  </div>
+</header>
+<main class="container">
+  <article>
+    <header>
+      <h2>The way back to the future of the original startup</h2>
+      <p>People want to do a good Job. Given the right Environment,
+        they will do so. We enable you, your teams or your
+        organisation to embed a customer-centric #digital culture of
+        100% Entrepreneurship | 0% Bureaucracy process by
+        process, team by team.</p>
+    </header>
+    <section class="row flex-items-md-between">
+      <div class="col-md-5">
+        <img src="img/grid.jpg" alt="Grid">
+      </div>
+      <div class="col-md-5">
+        <form name="form" class="card">
+          <div class="card-header">
+            <h2 class="card-title">
+              Get Information
+            </h2>
+          </div>
+          <div class="card-block">
+            <fieldset class="custom-controls-stacked">
+              <label class="custom-control custom-radio">
+                <input id="contactReason1" name="contactReason" type="radio" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">I want your help to design a product or service</span>
+              </label>
+              <label class="custom-control custom-radio">
+                <input id="contactReason2" name="contactReason" type="radio" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">I want to learn to design my culture like a videogame</span>
+              </label>
+              <label class="custom-control custom-radio">
+                <input id="contactReason3" name="contactReason" type="radio" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">I want to learn about co-creating my HR Management for a new world</span>
+              </label>
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="email">email address</label>
+              <input tabindex="1" class="form-control ng-pristine ng-empty ng-valid-email ng-invalid ng-invalid-required ng-valid-is-email ng-touched" type="email" id="email" required="" bootstrap-error-states="" is-email="" data-ng-model="data.email" data-ng-disabled="vm.p.$active || vm.initializing" name="email" auto-focus="">
+            </fieldset>
+          </div>
+          <div class="card-footer">
+            <div class="controls">
+              <button type="submit" class="btn btn-primary">
+                <i class="material-icons">send</i>
+                <span>Get Me On The Way</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </article>
+</main>
+<%= includes.footer %>
+<script type="text/javascript" src="/js/index.min.js?v=<%= data.version %>-<%= data.deployVersion %>"></script>
+</body>
+</html>

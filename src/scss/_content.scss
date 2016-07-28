@@ -1,0 +1,11 @@
+main {
+  article {
+    margin: 4rem 0;
+    @include media-breakpoint-up(lg) {
+      margin: 8rem 0;
+    }
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+}

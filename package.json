@@ -1,0 +1,82 @@
+{
+  "name": "www",
+  "appName": "Resourceful Humans - Consulting: Management Framework, Peer Feedback, Simple, Social, Realtime, Entrepreneurial",
+  "version": "0.0.1",
+  "description": "The Way of Resourceful Humans is the most thoughtful framework to kill Complexity and Complicatedness in your Enterprise. Turn Peer Feedback and entrepreneurial work of Human Resources into Resourceful Humans. Simple. Social. Realtime. Use our work (self-) managemanent tools like staRHs, netwoRHk and caRHds.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-server": "./node_modules/.bin/static ./build",
+    "lint": "./node_modules/.bin/standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ResourcefulHumans/www.git"
+  },
+  "keywords": [
+    "simple",
+    "social",
+    "realtime"
+  ],
+  "author": "Resourceful Humans <info@resourceful-humans.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ResourcefulHumans/www/issues"
+  },
+  "homepage": "https://github.com/ResourcefulHumans/www#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.3",
+    "material-design-icons": "^2.2.3",
+    "vide": "^0.5.0"
+  },
+  "devDependencies": {
+    "aliasify": "^2.0.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "browserify-shim": "^3.8.12",
+    "ghooks": "^1.3.2",
+    "nconf": "^0.8.4",
+    "node-sass": "^3.8.0",
+    "node-static": "^0.7.8",
+    "rheactor-build-views": "^1.4.0",
+    "standard": "^7.1.2",
+    "validate-commit-msg": "^2.6.1"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ],
+          "only": [
+            "/src/js/*.js",
+            "/src/js/**/*.js"
+          ]
+        }
+      ],
+      "browserify-shim",
+      "aliasify"
+    ]
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.js",
+    "tether": "./node_modules/tether/dist/js/tether.js",
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
+    "vide": "./node_modules/vide/dist/jquery.vide.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "bootstrap": "bootstrap",
+    "tether": "tether",
+    "vide": "vide"
+  }
+}

@@ -1,0 +1,16 @@
+body > footer {
+  color: rgba(#fff, 0.75);
+  font-size: 75%;
+  a {
+    color: rgba(#fff, 0.75);
+    text-decoration: underline;
+    &:hover {
+      color: #fff;
+    }
+  }
+  @include gradient(25%);
+  line-height: 120px;
+  img.logo {
+    height: 50px;
+  }
+}
