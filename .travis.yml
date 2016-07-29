@@ -1,13 +1,8 @@
 sudo: false
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
 language: node_js
-env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
 cache:
   directories:
     - node_modules
@@ -15,15 +10,16 @@ notifications:
   email: false
   slack:
     rooms:
-      - rhway:VfKOy61tSbzZwZXAe8KnPnNj#z_tech_github
-services:
-  - redis-server
+      - rhway:$SLACK__TOKEN#$SLACK__CHANNEL
 node_js:
   - 'stable'
+install:
+  - sudo apt-get install s3cmd
+  - npm install
 script:
   - make build
   - npm run lint
-  - npm run test:coverage
-branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+after_success:
+  - rm build/js/index.js
+  - rm build/css/index.css
+  - s3cmd sync --access_key=$AWS__ACCESS_KEY --secret_key=$AWS__SECRET_KEY --delete-removed ./build/ s3://$AWS__WEBSITE_BUCKET/
