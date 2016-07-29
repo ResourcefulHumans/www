@@ -23,6 +23,4 @@ script:
   - make build
   - npm run lint
 after_success:
-  - rm build/js/index.js
-  - rm build/css/index.css
-  - s3cmd sync --access_key=$AWS__ACCESS_KEY --secret_key=$AWS__SECRET_KEY --delete-removed ./build/ s3://$AWS__WEBSITE_BUCKET/
+  - make deploy

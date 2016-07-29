@@ -54,6 +54,9 @@ deploy: ## Deploy to production
 	ENVIRONMENT=production make -B build
 	rm build/js/index.js
 	rm build/css/index.css
+	ACCESS_KEY=`node console config aws:access_key_id`
+	SECRET_KEY=`node console config aws:secret_access_key`
+	REGION=`node console config aws:region`
 	s3cmd sync --delete-removed ./build/ s3://`node console config aws:website_bucket`/
 
 help: ## (default), display the list of make commands

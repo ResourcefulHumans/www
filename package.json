@@ -41,6 +41,8 @@
     "node-static": "^0.7.8",
     "rheactor-build-views": "^1.4.0",
     "standard": "^7.1.2",
+    "uglifycss": "0.0.20",
+    "uglifyjs": "^2.4.10",
     "validate-commit-msg": "^2.6.1"
   },
   "config": {

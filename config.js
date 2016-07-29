@@ -12,7 +12,10 @@ nconf
       'environment',
       'host',
       'port',
-      'web_host'
+      'web_host',
+      'aws__access_key_id',
+      'aws__secret_access_key',
+      'aws__website_bucket'
     ],
     lowerCase: true,
     separator: '__'
@@ -36,7 +39,10 @@ nconf.defaults({
   'appName': pjson.appName,
   'description': pjson.description,
   'aws': {
-    'website_bucket': '2016.resourceful-humans.com'
+    'website_bucket': '2016.resourceful-humans.com',
+    'region': 'eu-central-1',
+    'access_key_id': 'secret',
+    'secret_access_key': 'secret'
   }
 })
 
