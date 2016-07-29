@@ -10,7 +10,7 @@ notifications:
   email: false
   slack:
     rooms:
-      - rhway:VfKOy61tSbzZwZXAe8KnPnNj#z_tech_github
+      - rhway:VfKOy61tSbzZwZXAe8KnPnNj#homepage-redesign
 node_js:
   - 'stable'
 install:

@@ -1,6 +1,9 @@
 $enable-flex: true;
-$brand-primary: #0d62b2;
-$brand-secondary: #47a0f2;
+$enable-transitions: true;
+$brand-primary: #47a0f2;
+$brand-secondary: #0d62b2;
+$body-bg: $brand-primary;
+$body-color: #fff;
 $modifier: 2;
 $font-size-h1: 2.5rem * $modifier;
 $font-size-h2: 2rem * $modifier;
@@ -9,8 +12,10 @@ $font-size-h4: 1.5rem * $modifier;
 $font-size-h5: 1.25rem * $modifier;
 $font-size-h6: 1rem * $modifier;
 $font-size-base: 1.5rem;
+$headings-font-weight: 200;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
 @import "material-design-icons";
 @import "navbar";
 @import "hero";
@@ -19,17 +24,15 @@ $font-size-base: 1.5rem;
 @import "content";
 body, html {
   height: 100%;
-  color: #fff;
 }
 
 body {
+  background: $body-bg;
   @include gradient();
+  font-family: 'Assistant', sans-serif;
 }
 
 img {
   max-width: 100%;
 }
 
-.card {
-  color: $body-color;
-}

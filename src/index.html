@@ -13,48 +13,8 @@
   <%= includes.fonts %>
 </head>
 <body>
-<nav class="collapse navbar-expandable-top hidden-md-up" id="navbar-mobile" aria-expanded="false">
-  <div class="bg-inverse p-a-1">
-    <a class="nav-item nav-link" href="#">
-      <span>Tools</span>
-    </a>
-    <a class="nav-item nav-link" href="#">
-      <span>Transformation</span>
-    </a>
-    <a class="nav-item nav-link" href="#">
-      <span>Co-Creation</span>
-    </a>
-    <a class="nav-item nav-link" href="#">
-      <span>Contact</span>
-    </a>
-  </div>
-</nav>
-<nav class="navbar navbar-static-top">
-  <div class="container">
-    <span class="navbar-brand"><img src="/img/rh-logo-vector.svg?v=<%= data.version %>-<%= data.deployVersion %>" alt="<%= data.appName %>" height="60"></span>
-    <div class="nav navbar-nav hidden-sm-down pull-xs-right">
-      <a class="nav-item nav-link" href="#">
-        <span>Tools</span>
-      </a>
-      <a class="nav-item nav-link" href="#">
-        <span>Transformation</span>
-      </a>
-      <a class="nav-item nav-link" href="#">
-        <span>Co-Creation</span>
-      </a>
-      <a class="nav-item nav-link" href="#">
-        <span>Contact</span>
-      </a>
-    </div>
-    <button class="navbar-toggler collapsed hidden-md-up pull-xs-right btn-link" type="button" aria-expanded="false" data-toggle="collapse" data-target="#navbar-mobile">
-      <i class="material-icons">menu</i>
-    </button>
-  </div>
-</nav>
-<header class="hero-video" data-vide-bg="https://s3.eu-central-1.amazonaws.com/rh-web-assets/videos/valley" data-vide-options="posterType: jpg">
-  <div class="container">
-    <img src="/img/rh-logo-white.svg" alt="Resourceful Humans GmbH" class="logo">
-  </div>
+<%= includes.navigation %>
+<header class="hero-video" data-vide-bg="https://s3.eu-central-1.amazonaws.com/rh-web-assets/videos/goldengate" data-vide-options="posterType: jpg">
 </header>
 <main class="container">
   <article>

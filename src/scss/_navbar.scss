@@ -1,16 +1,81 @@
-.navbar-static-top {
-  background-color: $gray-lightest;
+$navbarInnerHeight: 40px;
+.navbar-fixed-top {
+  @include transition(all .2s ease-in-out);
+  background-color: rgba(#fff, 0.1);
   text-transform: uppercase;
-  line-height: 50px;
-  background-color: #f7f7f9;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
-  border-radius: 0;
-  .navbar-toggler {
-    margin-top: 13px;
+  z-index: 100;
+  font-weight: $headings-font-weight;
+  .navbar-brand {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    svg {
+      @include transition(all .2s ease-in-out);
+      height: $navbarInnerHeight;
+      width: $navbarInnerHeight * (2251/512);
+    }
+  }
+  .navbar-nav {
+    @include transition(all .2s ease-in-out);
+    height: $navbarInnerHeight;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    .nav-item {
+      font-size: 1.15rem;
+    }
+  }
+  .nav-link {
+    @include transition(all .2s ease-in-out);
+    color: $gray-lightest;
+    &:hover {
+      color: $brand-primary;
+    }
+    // lines between
+    border-left: 1px solid rgba(#fff, 0.5);
+    padding: 0 0 0 1rem;
+    &:first-child {
+      border-left: 0;
+    }
+  }
+  .navbar-toggler.btn-link {
+    @include transition(all .2s ease-in-out);
+    color: $gray-lightest;
+    &:hover {
+      color: $brand-primary;
+    }
   }
 }
 
+body.scrolling {
+  .navbar-fixed-top {
+    background-color: $gray-lightest;
+    box-shadow: 0 0 15px $gray-dark;
+    .nav-link {
+      color: rgba(invert($body-color), 0.85);
+      &:hover {
+        color: $brand-primary;
+      }
+      // lines between
+      border-left: 1px solid rgba(invert($body-color), 0.25);
+      &:first-child {
+        border-left: 0;
+      }
+    }
+    .navbar-toggler.btn-link {
+      color: rgba(invert($body-color), 0.85);
+    }
+  }
+}
+
+// Mobile menu
 .navbar-expandable-top {
+  @include transition(all .2s ease-in-out);
+  position: fixed;
+  top: $navbarInnerHeight + 18px;
+  width: 100%;
+  z-index: 99;
+  background-color: rgba(#fff, 0.1);
   .nav-item {
     display: block;
     padding-bottom: 1rem;
@@ -19,6 +84,70 @@
     }
   }
   .nav-link {
+    @include transition(all .2s ease-in-out);
     color: $gray-lightest;
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+}
+
+body.scrolling {
+  .navbar-expandable-top {
+    box-shadow: 0 0 15px $gray-dark;
+    background-color: $gray-dark;
+  }
+}
+
+body.attop {
+  .navbar-fixed-top {
+    .navbar-brand {
+      svg {
+        path {
+          @include transition(all .2s ease-in-out);
+          fill: #fff !important;
+        }
+      }
+    }
+  }
+}
+
+// Menu on large screens
+$navbarInnerHeightLarge: 80px;
+$navbarInnerHeightScrolling: 50px;
+@include media-breakpoint-up(lg) {
+  .navbar-fixed-top {
+    .navbar-brand {
+      svg {
+        height: $navbarInnerHeightLarge;
+        width: $navbarInnerHeightLarge * (2251/512);
+      }
+    }
+    .navbar-nav {
+      height: $navbarInnerHeightLarge;
+    }
+  }
+  body.scrolling {
+    .navbar-fixed-top {
+      .navbar-brand {
+        svg {
+          height: $navbarInnerHeightScrolling;
+          width: $navbarInnerHeightScrolling * (2251/512);
+        }
+      }
+      .navbar-nav {
+        height: $navbarInnerHeightScrolling;
+        font-size: 1.15rem;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .navbar-fixed-top {
+    .navbar-nav {
+      .nav-item {
+        font-size: 1.5rem;
+      }
+    }
   }
 }

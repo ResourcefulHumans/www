@@ -1,16 +1,25 @@
 body > footer {
-  color: rgba(#fff, 0.75);
+  color: rgba($body-color, 0.75);
   font-size: 75%;
+  padding: 4rem 0;
   a {
-    color: rgba(#fff, 0.75);
+    color: rgba($body-color, 0.75);
     text-decoration: underline;
     &:hover {
-      color: #fff;
+      color: $body-color;
     }
   }
   @include gradient(25%);
-  line-height: 120px;
   img.logo {
     height: 50px;
+  }
+  nav.icons {
+    font-size:200%;
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: rgba($body-color, 0.5);
+      text-decoration: none;
+    }
   }
 }

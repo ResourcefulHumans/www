@@ -1,214 +1,40 @@
-<nav class="collapse navbar-expandable-top hidden-md-up" id="navbar-mobile" aria-expanded="false" style="height: 0px;"
-     data-ng-controller="NavigationController as vm">
-  <div class="container-fluid bg-inverse p-a-1">
-    <a class="nav-link" data-ui-sref="networhk.contribution-add({domain: vm.stateParams.domain})"
-       data-ng-show="vm.onState('networhk')"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons">add_circle</i>
-      <span>Add contribution</span>
+<nav class="collapse navbar-expandable-top hidden-md-up" id="navbar-mobile" aria-expanded="false">
+  <div class="container m-b-2 m-t-1">
+    <a class="nav-item nav-link" href="#">
+      <span>Tools</span>
     </a>
-    <a class="nav-link" data-ui-sref="networhk.contributions-my({domain: vm.stateParams.domain})"
-       data-ui-sref-opts="{reload: true}"
-       data-ng-show="vm.onState('networhk')"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons">inbox</i>
-      <span>My contributions</span>
+    <a class="nav-item nav-link" href="#">
+      <span>Transformation</span>
     </a>
-    <a class="nav-link" data-ui-sref="networhk.contributions-open({domain: vm.stateParams.domain})"
-       data-ng-show="vm.onState('networhk')"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons">panorama_fish_eye</i>
-      <span>Open contributions</span>
+    <a class="nav-item nav-link" href="#">
+      <span>Co-Creation</span>
     </a>
-    <a class="nav-link" data-ui-sref="dashboard" data-ng-show="vm.authenticated"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons">dashboard</i>
-      <span>Dashboard</span>
-    </a>
-    <!-- Admin menu -->
-    <hr data-ng-show="vm.authenticated && vm.me.superUser">
-    <p class="nav-section" data-ng-show="vm.authenticated && vm.me.superUser">
-      <i class="material-icons">security</i>
-      <span>Administration</span>
-    </p>
-    <a class="nav-link" data-ui-sref="admin.users" data-ng-show="vm.authenticated && vm.me.superUser" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="true">
-      <i class="material-icons">people</i>
-      <span>Users</span>
-    </a>
-    <a class="nav-link" data-ui-sref="admin.networhks" data-ng-show="vm.authenticated && vm.me.superUser" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="true">
-      <i class="material-icons">apps</i>
-      <span>NetwoRHks</span>
-    </a>
-    <!-- User menu -->
-    <hr data-ng-show="vm.authenticated">
-    <p class="nav-section" data-ng-show="vm.authenticated">
-      <i class="material-icons">account_circle</i>
-      <span>%%vm.me.firstname%%</span>
-    </p>
-    <a class="nav-link" data-ui-sref="account.avatar" data-ng-show="vm.authenticated"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons">photo</i>
-      <span>Change avatar</span>
-    </a>
-    <hr data-ng-show="vm.authenticated">
-    <a class="nav-link" data-ng-click="vm.refreshToken()" data-ng-show="vm.authenticated"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons" data-ng-show="(vm.tokenLifetime)>0">schedule</i>
-      <i class="material-icons" data-ng-show="(vm.tokenLifetime)<=0">warning</i>
-      <span>Auto-logout in: %%vm.tokenLifetimeHuman%%. Click here to prolong.</span>
-    </a>
-    <a class="nav-link" data-ui-sref="logout" data-ng-show="vm.authenticated"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons">power_settings_new</i>
-      <span>Logout</span>
-    </a>
-    <a class="nav-link" href="/" aria-expanded="true">
-      <i class="material-icons">help</i>
-      <span>About</span>
-    </a>
-    <a class="nav-link" data-ui-sref="register" data-ng-hide="vm.authenticated"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons">person_add</i>
-      <span>Register</span>
-    </a>
-    <a class="nav-link" data-ui-sref="login" data-ng-hide="vm.authenticated"
-       data-toggle="collapse"
-       data-target="#navbar-mobile"
-       aria-expanded="true">
-      <i class="material-icons">person</i>
-      <span>Login</span>
+    <a class="nav-item nav-link" href="#">
+      <span>Contact</span>
     </a>
   </div>
 </nav>
-<nav class="navbar navbar-static-top ng-cloak" data-ng-controller="NavigationController as vm">
-  <span class="navbar-brand" data-ng-show="!vm.onState('networhk')">
-    <img src="img/logo-white.svg" alt="<%= data.name %>">
-  </span>
-  <a class="navbar-brand" data-ng-show="vm.onState('networhk')"
-     data-ui-sref="networhk({domain: vm.stateParams.domain})">
-    <img src="img/logo-white.svg" alt="<%= data.name %>" data-ng-hide="logo">
-    <img data-ng-src="%%logo.url%%" alt="%%logo.label%%" data-ng-show="logo">
-  </a>
-  <ul class="nav navbar-nav hidden-sm-down">
-    <li class="nav-item" data-ng-show="vm.authenticated && vm.onState('networhk')"
-        data-ng-class="{active: vm.onState('networhk.contribution-add')}">
-      <a class="nav-link" data-ui-sref="networhk.contribution-add({domain: vm.stateParams.domain})"
-         title="Add contribution">
-        <i class="material-icons">add_circle</i>
-        <span>Add</span>
-        <span class="hidden-md-down">contribution</span>
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <span class="navbar-brand">
+      <%= svg['rh-logo'] %>
+    </span>
+    <div class="nav navbar-nav hidden-sm-down pull-xs-right">
+      <a class="nav-item nav-link" href="#">
+        <span>Tools</span>
       </a>
-    </li>
-    <li class="nav-item" data-ng-show="vm.authenticated && vm.onState('networhk')"
-        data-ng-class="{active: vm.onState('networhk.contributions-my')}">
-      <a class="nav-link" data-ui-sref="networhk.contributions-my({domain: vm.stateParams.domain})"
-         title="My contributions">
-        <i class="material-icons">inbox</i>
-        <span>My</span> <span class="hidden-md-down">contributions</span>
+      <a class="nav-item nav-link" href="#">
+        <span>Transformation</span>
       </a>
-    </li>
-    <li class="nav-item" data-ng-show="vm.authenticated && vm.onState('networhk')"
-        data-ng-class="{active: vm.onState('networhk.contributions-open')}">
-      <a class="nav-link" data-ui-sref="networhk.contributions-open({domain: vm.stateParams.domain})"
-         title="Open contributions">
-        <i class="material-icons">panorama_fish_eye</i>
-        <span>Open</span> <span class="hidden-md-down">contributions</span>
+      <a class="nav-item nav-link" href="#">
+        <span>Co-Creation</span>
       </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/" title="About caRHds">
-        <i class="material-icons">help</i>
-        <span data-ng-hide="vm.onState('networhk')">About</span>
+      <a class="nav-item nav-link" href="#">
+        <span>Contact</span>
       </a>
-    </li>
-    <li class="nav-item" data-ng-show="vm.authenticated" data-ng-class="{active: vm.onState('dashboard')}">
-      <a class="nav-link" data-ui-sref="dashboard" title="Dashboard">
-        <i class="material-icons">dashboard</i>
-        <span data-ng-hide="vm.onState('networhk')">
-          Dashboard
-        </span>
-      </a>
-    </li>
-  </ul>
-  <ul class="nav navbar-nav hidden-sm-down" id="metanav">
-    <li class="nav-item btn-group" data-ng-show="vm.authenticated && vm.me.superUser" data-ng-class="{active: vm.onState('admin')}">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="adminMenu" aria-haspopup="true" aria-expanded="false" title="Administration">
-        <i class="material-icons">security</i>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminMenu">
-        <a class="dropdown-item" data-ui-sref="admin.users" data-ng-class="{active: vm.onState('admin.users')}">
-          <i class="material-icons">people</i>
-          <span>Users</span>
-        </a>
-        <a class="dropdown-item" data-ui-sref="admin.networhks" data-ng-class="{active: vm.onState('admin.networhks')}">
-          <i class="material-icons">apps</i>
-          <span>NetwoRHks</span>
-        </a>
-      </div>
-    </li>
-    <li class="nav-item" data-ng-show="vm.authenticated">
-      <a class="nav-link" data-ng-click="vm.refreshToken()"
-         title="Remaining time until auto-logout. Click to prolong.">
-        <i class="material-icons" data-ng-show="(vm.tokenLifetime)>0">schedule</i>
-        <i class="material-icons" data-ng-show="(vm.tokenLifetime)<=0">warning</i>
-        <span>%%vm.tokenLifetimeHuman%%</span>
-      </a>
-    </li>
-    <li class="nav-item" data-ng-show="vm.authenticated && vm.onState('networhk') && !vm.sync">
-      <abbr class="nav-icon" title="Synchronization not available …">
-        <i class="material-icons warning">sync_disabled</i>
-      </abbr>
-    </li>
-    <li class="nav-item btn-group" data-ng-show="vm.authenticated" data-ng-class="{active: vm.onState('me')}">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountMenu" aria-haspopup="true"
-         aria-expanded="false" title="%%vm.me.firstname || 'Anonymous'%%">
-        <i class="material-icons">account_circle</i>
-        <span class="hidden-md-down">%%vm.me.firstname%%</span>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountMenu">
-        <a class="dropdown-item" data-ui-sref="account.avatar" data-ng-class="{active: vm.onState('account.avatar')}">
-          <i class="material-icons">photo</i>
-          <span>Change avatar</span>
-        </a>
-      </div>
-    </li>
-    <li class="nav-item" data-ng-show="vm.authenticated" title="Logout">
-      <a class="nav-link" data-ui-sref="logout">
-        <i class="material-icons">power_settings_new</i>
-        <span class="hidden-md-down">Logout</span>
-      </a>
-    </li>
-    <li class="nav-item" data-ng-hide="vm.authenticated" title="Register">
-      <a class="nav-link" data-ui-sref="register">
-        <i class="material-icons">person_add</i>
-        <span>Register</span>
-      </a>
-    </li>
-    <li class="nav-item" data-ng-hide="vm.authenticated" title="Login">
-      <a class="nav-link" data-ui-sref="login">
-        <i class="material-icons">person</i>
-        <span>Login</span>
-      </a>
-    </li>
-  </ul>
-  <button class="navbar-toggler collapsed hidden-md-up" type="button" data-toggle="collapse"
-          data-target="#navbar-mobile" aria-expanded="false">
-    ☰
-  </button>
+    </div>
+    <button class="navbar-toggler collapsed hidden-md-up pull-xs-right btn-link" type="button" aria-expanded="false" data-toggle="collapse" data-target="#navbar-mobile">
+      <i class="material-icons">menu</i>
+    </button>
+  </div>
 </nav>

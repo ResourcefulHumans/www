@@ -25,9 +25,10 @@ build/css:
 build/css/index.css: src/scss/*.scss build/fonts
 	./node_modules/.bin/node-sass src/scss/index.scss $@
 
-build/fonts: node_modules/material-design-icons/iconfont/MaterialIcons-Regular.*
+build/fonts: node_modules/material-design-icons/iconfont/MaterialIcons-Regular.* node_modules/font-awesome/fonts/*.*
 	mkdir -p build/fonts
 	cp -u node_modules/material-design-icons/iconfont/MaterialIcons-Regular.* build/fonts/
+	cp -u node_modules/font-awesome/fonts/*.* build/fonts/
 
 build/css/index.min.css: build/css build/css/index.css
 ifeq ($(ENVIRONMENT),development)
