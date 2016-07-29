@@ -14,8 +14,11 @@ notifications:
 node_js:
   - 'stable'
 install:
-  - sudo apt-get install s3cmd
   - npm install
+addons:
+  apt:
+    packages:
+      - s3cmd
 script:
   - make build
   - npm run lint
