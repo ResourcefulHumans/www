@@ -10,7 +10,7 @@ notifications:
   email: false
   slack:
     rooms:
-      - rhway:$SLACK__TOKEN#$SLACK__CHANNEL
+      - rhway:VfKOy61tSbzZwZXAe8KnPnNj#z_tech_github
 node_js:
   - 'stable'
 install:
