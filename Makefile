@@ -51,15 +51,15 @@ build/robots.txt: src/robots.txt
 	cp -u src/robots.txt build/
 
 deploy: ## Deploy to production
-	rm -rf build
-	ENVIRONMENT=production make -B build
-	rm build/js/index.js
-	rm build/css/index.css
+	#rm -rf build
+	#ENVIRONMENT=production make -B build
+	#rm build/js/index.js
+	#rm build/css/index.css
 	s3cmd \
 		--access_key="$(shell node console config aws:access_key_id)" \
 		--secret_key="$(shell node console config aws:secret_access_key)" \
 		--region=$(shell node console config aws:region) \
-		sync --delete-removed ./build/ s3://`node console config aws:website_bucket`/
+		sync --delete-removed ./build/ s3://$(shell node console config aws:website_bucket)/
 
 help: ## (default), display the list of make commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
