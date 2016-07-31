@@ -23,5 +23,5 @@ script:
   - make build
   - npm run lint
 after_success:
-  - echo "[default]" > .s3cfg
+  - echo "[default]" > /home/travis/.s3cfg
   - make deploy
