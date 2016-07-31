@@ -14,18 +14,13 @@ notifications:
 node_js:
   - 'stable'
 install:
-  - pip install --user s3cmd
   - npm install
 addons:
   apt:
     packages:
-      - python-pip
+      - s3cmd
 script:
   - make build
   - npm run lint
 after_success:
-  - echo "[default]" > /home/travis/.s3cfg
-  - echo "access_key = " >> /home/travis/.s3cfg
-  - echo "secret_key = " >> /home/travis/.s3cfg
-  - cat /home/travis/.s3cfg
-  - PATH=$PATH:$HOME/.local/bin make deploy
+  - make deploy
