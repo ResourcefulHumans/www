@@ -25,4 +25,6 @@ script:
   - npm run lint
 after_success:
   - echo "[default]" > /home/travis/.s3cfg
+  - echo "access_key = " >> /home/travis/.s3cfg
+  - echo "secret_key = " >> /home/travis/.s3cfg
   - PATH=$PATH:$HOME/.local/bin make deploy
