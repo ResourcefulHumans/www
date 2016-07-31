@@ -14,11 +14,12 @@ notifications:
 node_js:
   - 'stable'
 install:
+  - pip install s3cmd
   - npm install
 addons:
   apt:
     packages:
-      - s3cmd
+      - python-pip
 script:
   - make build
   - npm run lint
