@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   height: 75%;
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     height: 100%;
   }
   img.logo {
