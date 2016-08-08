@@ -51,10 +51,10 @@ build/robots.txt: src/robots.txt
 	cp -u src/robots.txt build/
 
 deploy: ## Deploy to production
-	#rm -rf build
-	#ENVIRONMENT=production make -B build
-	#rm build/js/index.js
-	#rm build/css/index.css
+	rm -rf build
+	ENVIRONMENT=production make -B build
+	rm build/js/index.js
+	rm build/css/index.css
 	s3cmd \
 		--access_key="$(shell node console config aws:access_key_id)" \
 		--secret_key="$(shell node console config aws:secret_access_key)" \
