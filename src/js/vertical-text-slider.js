@@ -14,16 +14,26 @@ function VerticalTextSlider ($, $window) {
   self.start()
   self.top = 0
   self.step = 0
+  self.slider.on('visibility.invisible', self.stop.bind(self))
+  self.slider.on('visibility.visible', self.start.bind(self))
 }
 
 VerticalTextSlider.prototype.start = function () {
   const self = this
+  if (self.animation) return
   self.animation = self.$window[0].setInterval(self.next.bind(self), 2000)
+}
+
+VerticalTextSlider.prototype.stop = function () {
+  const self = this
+  if (!self.animation) return
+  self.$window[0].clearInterval(self.animation)
+  self.animation = null
 }
 
 VerticalTextSlider.prototype.reset = function () {
   const self = this
-  self.list.animate({top: 0}, 1000)
+  self.list.velocity({top: 0}, {duration: 1000})
   self.top = self.step = 0
   self.start()
 }
@@ -31,11 +41,10 @@ VerticalTextSlider.prototype.reset = function () {
 VerticalTextSlider.prototype.next = function () {
   const self = this
   self.top = self.top - self.height
-  self.list.animate({top: self.top}, 1000)
+  self.list.velocity({top: self.top}, {duration: 1000})
   self.step++
   if (self.step >= self.items.length - 1) {
-    self.$window[0].clearInterval(self.animation)
-    self.animation = null
+    self.stop()
     self.$window[0].setTimeout(self.reset.bind(self), 10000)
   }
 }

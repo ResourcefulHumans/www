@@ -38,6 +38,7 @@
     "rheactor-build-views": "^1.5.2",
     "uglifycss": "0.0.20",
     "uglifyjs": "^2.4.10",
+    "velocity-animate": "^1.2.3",
     "vide": "^0.5.0"
   },
   "devDependencies": {
@@ -74,12 +75,18 @@
     "jquery": "./node_modules/jquery/dist/jquery.js",
     "tether": "./node_modules/tether/dist/js/tether.js",
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
-    "vide": "./node_modules/vide/dist/jquery.vide.js"
+    "vide": "./node_modules/vide/dist/jquery.vide.js",
+    "velocity": "./node_modules/velocity-animate/velocity.js"
   },
   "browserify-shim": {
     "jquery": "$",
     "bootstrap": "bootstrap",
     "tether": "tether",
-    "vide": "vide"
+    "vide": "vide",
+    "velocity": {
+      "deps": [
+        "jquery"
+      ]
+    }
   }
 }

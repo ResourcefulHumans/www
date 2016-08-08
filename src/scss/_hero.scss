@@ -1,7 +1,7 @@
 .hero-video {
   position: relative;
   overflow: hidden;
-  height: 75%;
+  height: 50%;
   @include media-breakpoint-up(md) {
     height: 100%;
   }
