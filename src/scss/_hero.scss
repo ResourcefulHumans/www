@@ -19,6 +19,12 @@
     bottom: 1rem;
     right: 1rem;
     text-transform: uppercase;
+    @include media-breakpoint-up(md) {
+      font-size: 125%;
+    }
+    @include media-breakpoint-up(lg) {
+      font-size: 175%;
+    }
     a {
       display: block;
       color: $body-color;
