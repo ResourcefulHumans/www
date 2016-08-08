@@ -13,10 +13,12 @@ $font-size-h5: 1.25rem * $modifier;
 $font-size-h6: 1rem * $modifier;
 $font-size-base: 1.5rem;
 $headings-font-weight: 200;
+$good-color: #70bf41; // green, used to highlight solutions
+$bad-color: #f39019; // orange, used to highlight problems
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/font-awesome/scss/font-awesome.scss";
-@import "material-design-icons";
+@import "../../node_modules/ionicons/dist/scss/ionicons.scss";
 @import "navbar";
 @import "hero";
 @import "mixins";
@@ -29,7 +31,9 @@ body, html {
 body {
   background: $body-bg;
   @include gradient();
-  font-family: 'Assistant', sans-serif;
+  font-family: "Agenda Thi Cond", sans-serif;
+  font-style: Normal;
+  font-weight: Normal;
 }
 
 img {

@@ -7,4 +7,75 @@
     @include pull-right();
     margin-top: 2rem;
   }
+  section {
+    position: relative;
+    height: 100%;
+  }
+  nav {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    text-transform: uppercase;
+    a {
+      display: block;
+      color: $body-color;
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  *[role=heading] {
+    font-size: 200%;
+    text-transform: uppercase;
+    position: absolute;
+    top: 160px;
+    right: 1rem;
+    white-space: nowrap;
+    color: rgba(invert($body-color), 0.85);
+    text-align: right;
+    width: 575px;
+    svg {
+      $logoHeight: 150;
+      position: absolute;
+      top: -48px;
+      left: -30px;
+      height: $logoHeight * 1px;
+      width: 1422px * ($logoHeight / 512);
+      path {
+        fill: rgba(invert($body-color), 0.85) !important;
+      }
+    }
+    p {
+      margin: 0;
+    }
+    .vertical-text-slider {
+      position: absolute;
+      overflow: hidden;
+      color: $body-color;
+      right: 0;
+      top: 75px;
+      text-shadow: 0 2px 4px rgba(invert($body-color), 0.85);
+      .good {
+        color: $good-color;
+      }
+      .bad {
+        color: $bad-color;
+      }
+      *[role=list] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        *[role=listitem] {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+    .vertical-text-slider + p {
+      position: absolute;
+      right: 0;
+      top: 150px;
+    }
+  }
 }
