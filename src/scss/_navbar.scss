@@ -75,7 +75,8 @@ body.scrolling {
   top: $navbarInnerHeight + 18px;
   width: 100%;
   z-index: 99;
-  background-color: rgba(#fff, 0.1);
+  box-shadow: 0 0 15px $gray-dark;
+  background-color: $gray-dark;
   .nav-item {
     display: block;
     padding-bottom: 1rem;
@@ -89,13 +90,6 @@ body.scrolling {
     &:hover {
       color: $brand-primary;
     }
-  }
-}
-
-body.scrolling {
-  .navbar-expandable-top {
-    box-shadow: 0 0 15px $gray-dark;
-    background-color: $gray-dark;
   }
 }
 
@@ -142,6 +136,7 @@ $navbarInnerHeightScrolling: 50px;
     }
   }
 }
+
 @include media-breakpoint-up(xl) {
   .navbar-fixed-top {
     .navbar-nav {

@@ -1,7 +1,10 @@
 .hero-video {
   position: relative;
   overflow: hidden;
-  height: 100%;
+  height: 75%;
+  @include media-breakpoint-up(md) {
+    height: 100%;
+  }
   img.logo {
     width: 50%;
     @include pull-right();
@@ -23,39 +26,62 @@
         text-decoration: none;
       }
     }
+    i.ion {
+      margin-left: 0.25rem;
+    }
   }
 
   *[role=heading] {
-    font-size: 200%;
     text-transform: uppercase;
-    position: absolute;
-    top: 160px;
-    right: 1rem;
     white-space: nowrap;
     color: rgba(invert($body-color), 0.85);
+    padding-top: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     text-align: right;
-    width: 575px;
-    svg {
-      $logoHeight: 150;
+    @include media-breakpoint-up(md) {
+      padding-top: 0;
+      font-size: 200%;
       position: absolute;
-      top: -48px;
-      left: -30px;
-      height: $logoHeight * 1px;
-      width: 1422px * ($logoHeight / 512);
+      top: 160px;
+      right: 1rem;
+      text-align: right;
+      width: 575px;
+    }
+
+    svg {
+      width: 65%;
+      height: 512 / 1422 * 65%;
+      margin-right: 1rem;
+      @include media-breakpoint-up(md) {
+        $logoHeight: 150;
+        position: absolute;
+        top: -48px;
+        left: -30px;
+        height: $logoHeight * 1px;
+        width: 1422px * ($logoHeight / 512);
+      }
       path {
         fill: rgba(invert($body-color), 0.85) !important;
       }
     }
     p {
       margin: 0;
+      @include media-breakpoint-down(sm) {
+        font-size: 150%;
+      }
     }
     .vertical-text-slider {
-      position: absolute;
+      position: relative;
       overflow: hidden;
       color: $body-color;
-      right: 0;
-      top: 75px;
       text-shadow: 0 2px 4px rgba(invert($body-color), 0.85);
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        right: 0;
+        top: 75px;
+      }
       .good {
         color: $good-color;
       }
@@ -73,9 +99,22 @@
       }
     }
     .vertical-text-slider + p {
-      position: absolute;
-      right: 0;
-      top: 150px;
+      @include media-breakpoint-down(sm) {
+        text-align: right;
+      }
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        right: 0;
+        top: 150px;
+        font-size: 100%;
+      }
+    }
+    div.logo {
+      @include media-breakpoint-down(sm) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
   }
 }

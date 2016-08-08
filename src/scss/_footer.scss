@@ -4,9 +4,11 @@ body > footer {
   padding: 4rem 0;
   a {
     color: rgba($body-color, 0.75);
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba($body-color, 0.5);
     &:hover {
       color: $body-color;
+      text-decoration: none;
     }
   }
   @include gradient(25%);
@@ -16,10 +18,13 @@ body > footer {
   nav.icons {
     font-size:200%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
     a {
       color: rgba($body-color, 0.5);
       text-decoration: none;
+      padding: 0 1rem;
+      border-bottom: 0;
     }
   }
 }
