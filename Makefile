@@ -38,7 +38,7 @@ else
 endif
 
 build/*.html: src/*.html src/includes/*.html build/img
-	./node_modules/.bin/rheactor-build-views build ./config ./src ./build
+	./node_modules/.bin/rheactor-build-views build -m ./config ./src ./build
 
 build/img: src/img/*.*
 	mkdir -p build/img
