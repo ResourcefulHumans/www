@@ -56,6 +56,7 @@ $(() => {
     positionRHWayLogo()
   }
   $window.on('resize', onResize)
+  $window.on('load', onResize)
   window.setTimeout(onResize, 100)
 
   vm.slider = new VerticalTextSlider($, $window)
