@@ -39,7 +39,24 @@ $(() => {
     })
   }
   $window.on('scroll', onScroll)
-  onScroll()
+  window.setTimeout(onScroll, 100)
+
+  const positionRHWayLogo = () => {
+    const theRHWay = $('.hero-video *[role=heading] h1 span')
+    const theRHWayOffset = theRHWay.offset()
+    const theRHWayHeight = theRHWay.height() * 0.875
+    $('#rhcircle').css({
+      top: theRHWayOffset.top - (theRHWayHeight / 2),
+      left: theRHWayOffset.left - (theRHWayHeight * 2) + (theRHWayHeight * 0.25),
+      height: theRHWayHeight * 2,
+      width: theRHWayHeight * 2
+    })
+  }
+  const onResize = () => {
+    positionRHWayLogo()
+  }
+  $window.on('resize', onResize)
+  window.setTimeout(onResize, 100)
 
   vm.slider = new VerticalTextSlider($, $window)
 })

@@ -38,53 +38,36 @@
     text-transform: uppercase;
     white-space: nowrap;
     color: rgba(invert($body-color), 0.85);
-    padding-top: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
     text-align: right;
+    line-height: 120%;
+    font-size: 100%;
+    padding-top: 100px;
     @include media-breakpoint-up(md) {
-      padding-top: 0;
-      font-size: 200%;
-      position: absolute;
-      top: 160px;
-      right: 1rem;
-      text-align: right;
-      width: 575px;
+      font-size: 110%;
+      padding-top: 125px;
     }
-
-    svg {
-      width: 65%;
-      height: 512 / 1422 * 65%;
-      margin-right: 1rem;
-      @include media-breakpoint-up(md) {
-        $logoHeight: 150;
-        position: absolute;
-        top: -48px;
-        left: -30px;
-        height: $logoHeight * 1px;
-        width: 1422px * ($logoHeight / 512);
-      }
-      path {
-        fill: rgba(invert($body-color), 0.85) !important;
-      }
+    @include media-breakpoint-up(lg) {
+      font-size: 200%;
+      padding-top: 150px;
+    }
+    @include media-breakpoint-up(xl) {
+      font-size: 250%;
+      padding-top: 200px;
     }
     p {
-      margin: 0;
-      @include media-breakpoint-down(sm) {
-        font-size: 150%;
+      font-size: 100%;
+    }
+    h1 {
+      font-size: 110 / 66.66 * 100%;
+      small {
+        font-size: 66.66%;
       }
     }
     .vertical-text-slider {
-      position: relative;
-      overflow: hidden;
+      position: absolute;
+      right: $grid-gutter-width / 2;
       color: $body-color;
       text-shadow: 0 2px 4px rgba(invert($body-color), 0.85);
-      @include media-breakpoint-up(md) {
-        position: absolute;
-        right: 0;
-        top: 75px;
-      }
       .good {
         color: $good-color;
       }
@@ -93,23 +76,9 @@
       }
       *[role=list] {
         position: absolute;
-        top: 0;
         right: 0;
         *[role=listitem] {
-          margin: 0;
-          padding: 0;
         }
-      }
-    }
-    .vertical-text-slider + p {
-      @include media-breakpoint-down(sm) {
-        text-align: right;
-      }
-      @include media-breakpoint-up(md) {
-        position: absolute;
-        right: 0;
-        top: 150px;
-        font-size: 100%;
       }
     }
     div.logo {
@@ -118,6 +87,19 @@
         justify-content: space-between;
         align-items: center;
       }
+    }
+  }
+}
+
+#rhcircle {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  svg {
+    width: 100%;
+    height: 100%;
+    path {
+      fill: rgba(invert($body-color), 0.85) !important;
     }
   }
 }

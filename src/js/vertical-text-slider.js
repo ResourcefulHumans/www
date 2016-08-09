@@ -7,10 +7,13 @@ function VerticalTextSlider ($, $window) {
   self.slider = $('.vertical-text-slider')
   self.list = this.slider.find('*[role=list]')
   self.items = this.list.find('*[role=listitem]')
-  self.height = $(this.items[0]).height()
+  self.height = $(this.items[1]).position().top - $(this.items[0]).position().top
   self.width = $(this.list).width()
-  self.slider.css('height', this.height + 'px')
-  self.slider.css('width', this.width + 'px')
+  self.slider.css({
+    'height': this.height + 'px',
+    'width': this.width + 'px',
+    'overflow': 'hidden'
+  })
   self.start()
   self.top = 0
   self.step = 0
