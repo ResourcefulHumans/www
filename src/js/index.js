@@ -8,6 +8,7 @@ require('bootstrap')
 require('vide')
 require('velocity')
 const VerticalTextSlider = require('./vertical-text-slider')
+const TestimonialSlider = require('./testimonial-slider')
 
 $(() => {
   const $window = $(window)
@@ -59,5 +60,6 @@ $(() => {
   $window.on('load', onResize)
   window.setTimeout(onResize, 100)
 
-  vm.slider = new VerticalTextSlider($, $window)
+  vm.heroSlider = new VerticalTextSlider($, $window)
+  vm.testimonialSlider = new TestimonialSlider($, $window, $('#testimonials').find('*[role=list]'))
 })

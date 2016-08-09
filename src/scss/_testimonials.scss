@@ -1,0 +1,115 @@
+#testimonials {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  @include media-breakpoint-up(md) {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  @include media-breakpoint-up(lg) {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+  *[role=list] {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+  }
+  *[role=listitem] {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 3px solid $body-color;
+    blockquote {
+      width: 100%;
+      float: right;
+      padding: ($grid-gutter-width / 2) 0 $grid-gutter-width $grid-gutter-width;
+      position: relative;
+      clear: both;
+      line-height: 105%;
+      font-size: 115%;
+      @include media-breakpoint-up(md) {
+        font-size: 150%;
+        width: 65%;
+      }
+      @include media-breakpoint-up(lg) {
+        font-size: 175%;
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: 200%;
+      }
+      &:before {
+        @include fa-icon();
+        content: $fa-var-quote-left;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 100%;
+        color: rgba($body-color, 0.25);
+        @include media-breakpoint-up(md) {
+          left: -$grid-gutter-width;
+        }
+      }
+    }
+
+    *[role=note] {
+      width: 60%;
+      float: right;
+      position: relative;
+      clear: both;
+      line-height: 100%;
+      @include media-breakpoint-up(md) {
+        width: 45%;
+        font-size: 125%;
+      }
+      &:before {
+        content: '—';
+        position: absolute;
+        top: 0;
+        left: -2rem;
+      }
+    }
+
+    img {
+      max-height: 40%;
+      @include media-breakpoint-up(sm) {
+        max-height: 65%;
+      }
+      @include media-breakpoint-up(md) {
+        max-height: 85%;
+      }
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  nav {
+    text-align: center;
+    margin-top: 2rem;
+    *[role=checkbox] {
+      cursor: pointer;
+      color: rgba($body-color, 0.25);
+      font-size: 150%;
+      @include media-breakpoint-up(sm) {
+        font-size: 100%;
+      }
+      &:focus, &:active, &:hover {
+        text-decoration: none;
+        color: rgba($body-color, 0.5);
+      }
+      *:last-child {
+        display: none;
+      }
+      &[aria-checked=true] {
+        *:first-child {
+          display: none;
+        }
+        *:last-child {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

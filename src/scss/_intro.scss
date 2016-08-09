@@ -13,7 +13,7 @@
     margin-top: 8rem;
   }
 
-  section {
+  *[role=listitem] {
     padding: 2rem;
     @include media-breakpoint-up(sm) {
       border: 3px solid $body-color;
@@ -51,7 +51,7 @@
       transform: translateY(0);
     }
   }
-  section {
+  *[role=listitem] {
     @include media-breakpoint-up(sm) {
       transform: translateY(500px);
       &:first-child {
@@ -60,7 +60,7 @@
     }
   }
   &.was-visible {
-    section {
+    *[role=listitem] {
       animation: come-in 1.5s ease forwards;
     }
   }
