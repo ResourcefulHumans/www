@@ -9,8 +9,10 @@ function TestimonialSlider ($, $window, list) {
   this.list.find('*[role=listitem]').each((i, el) => {
     const slide = $(el)
     slide.attr('aria-expanded', i === 0 ? 'true' : 'false')
-    slide.css('left', i === 0 ? '0' : '100%')
     self.slides.push(slide)
+    slide.on('click', () => {
+      self.controlClicked(self.step + 1)
+    })
   })
   self.controls = []
   $('#' + this.list.attr('aria-controls')).find('*[role=checkbox]').each((i, el) => {
@@ -23,12 +25,13 @@ function TestimonialSlider ($, $window, list) {
   self.step = 0
   self.list.on('visibility.invisible', self.stop.bind(self))
   self.list.on('visibility.visible', self.start.bind(self))
+  self.speed = 1
 }
 
 TestimonialSlider.prototype.start = function () {
   const self = this
   if (self.animation) return
-  self.animation = self.$window[0].setInterval(self.next.bind(self), 10000)
+  self.animation = self.$window[0].setInterval(self.next.bind(self), 10000 * self.speed)
 }
 
 TestimonialSlider.prototype.stop = function () {
@@ -50,22 +53,15 @@ TestimonialSlider.prototype.controlClicked = function (slide) {
   if (self.restartTimer) {
     self.$window[0].clearInterval(self.restartTimer)
   }
-  self.restartTimer = self.$window[0].setTimeout(self.start.bind(self), 5000)
+  self.restartTimer = self.$window[0].setTimeout(self.start.bind(self), 5000 * self.speed)
 }
 
 TestimonialSlider.prototype.showSlide = function (num) {
   const self = this
   if (self.step === num) return
-  if (self.progress) return
-  self.progress = true
   if (self.step > -1) {
     self.controls[self.step].attr('aria-checked', 'false')
     self.slides[self.step].attr('aria-expanded', 'false')
-    self.slides[self.step].velocity({left: '-100%'}, {
-      duration: 1000, complete: (elements) => {
-        self.$(elements).css('left', '100%')
-      }
-    })
   }
   self.step = num
   if (self.step >= self.slides.length) {
@@ -73,12 +69,6 @@ TestimonialSlider.prototype.showSlide = function (num) {
   }
   self.controls[self.step].attr('aria-checked', 'true')
   self.slides[self.step].attr('aria-expanded', 'true')
-  self.slides[self.step].velocity({left: '0%'}, {
-    duration: 1000,
-    complete: () => {
-      self.progress = false
-    }
-  })
 }
 
 module.exports = TestimonialSlider
