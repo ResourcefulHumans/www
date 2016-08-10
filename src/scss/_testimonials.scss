@@ -1,10 +1,6 @@
 #testimonials {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  @include media-breakpoint-up(md) {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-  }
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   @include media-breakpoint-up(lg) {
     margin-top: 8rem;
     margin-bottom: 8rem;
@@ -23,8 +19,7 @@
     border-bottom: 3px solid $body-color;
     blockquote {
       width: 100%;
-      float: right;
-      padding: ($grid-gutter-width / 2) 0 $grid-gutter-width $grid-gutter-width;
+      padding: ($grid-gutter-width / 2) 0 $grid-gutter-width ($grid-gutter-width * 2);
       position: relative;
       clear: both;
       line-height: 105%;
@@ -48,21 +43,35 @@
         font-size: 100%;
         color: rgba($body-color, 0.25);
         @include media-breakpoint-up(md) {
-          left: -$grid-gutter-width;
+        }
+      }
+      &.long {
+        font-size: 100%;
+        @include media-breakpoint-up(md) {
+          font-size: 110%;
+        }
+        @include media-breakpoint-up(lg) {
+          font-size: 120%;
+        }
+        @include media-breakpoint-up(xl) {
+          font-size: 140%;
         }
       }
     }
 
     *[role=note] {
-      width: 60%;
-      float: right;
-      position: relative;
-      clear: both;
       line-height: 100%;
       @include media-breakpoint-up(md) {
-        width: 45%;
-        font-size: 125%;
+        width: 100%;
+        font-size: 80%;
+        margin-left: 4rem;
+        margin-top: 2rem;
       }
+      @include media-breakpoint-up(lg) {
+        font-size: 60%;
+      }
+
+      position: relative;
       &:before {
         content: '—';
         position: absolute;
@@ -70,10 +79,26 @@
         left: -2rem;
       }
     }
+    blockquote.long {
+      *[role=note] {
+        @include media-breakpoint-up(md) {
+          font-size: 60% * 150 / 110;
+        }
+        @include media-breakpoint-up(lg) {
+          font-size: 60% * 175 / 120;
+        }
+        @include media-breakpoint-up(xl) {
+          font-size: 60% * 200 / 140;
+        }
+      }
+    }
 
     img {
       max-height: 40%;
+      max-width: 40%;
+      display: none;
       @include media-breakpoint-up(sm) {
+        display: inline-block;
         max-height: 65%;
       }
       @include media-breakpoint-up(md) {
@@ -81,7 +106,31 @@
       }
       position: absolute;
       bottom: 0;
-      left: 0;
+    }
+
+    &:nth-child(odd) {
+      blockquote {
+        float: right;
+      }
+      @include media-breakpoint-down(md) {
+        img {
+          right: 0;
+        }
+      }
+      @include media-breakpoint-up(md) {
+        img {
+          left: 0;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      blockquote {
+        float: left;
+      }
+      img {
+        right: 0;
+      }
     }
   }
 
@@ -91,7 +140,7 @@
     *[role=checkbox] {
       cursor: pointer;
       color: rgba($body-color, 0.25);
-      font-size: 150%;
+      font-size: 115%;
       @include media-breakpoint-up(sm) {
         font-size: 100%;
       }

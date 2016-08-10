@@ -28,7 +28,7 @@ function TestimonialSlider ($, $window, list) {
 TestimonialSlider.prototype.start = function () {
   const self = this
   if (self.animation) return
-  self.animation = self.$window[0].setInterval(self.next.bind(self), 3000)
+  self.animation = self.$window[0].setInterval(self.next.bind(self), 10000)
 }
 
 TestimonialSlider.prototype.stop = function () {
