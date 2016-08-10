@@ -1,0 +1,17 @@
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" width="958.32" height="470.92" viewBox="0 0 958.32 470.92">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e6007e;
+      }
+    </style>
+  </defs>
+  <title>Unbenannt-4</title>
+  <g>
+    <path class="cls-1" d="M20.58,577V481.65h95.36V577H20.58Z" transform="translate(-20.58 -265.02)"/>
+    <path class="cls-1" d="M311.37,577V481.65h95.36V577H311.37Z" transform="translate(-20.58 -265.02)"/>
+    <path class="cls-1" d="M597.45,577V481.65h95.36V577H597.45Z" transform="translate(-20.58 -265.02)"/>
+    <path class="cls-1" d="M883.54,577V481.65H978.9V577H883.54Z" transform="translate(-20.58 -265.02)"/>
+    <path class="cls-1" d="M402,265H25.29L20.58,431.19l25,4.32q7-73.44,38.55-109c22.15-24.81,52.65-37.77,91.86-38.88V635.24c0,30.36-4.24,50.07-13.1,59.16Q151.58,706,124.66,708.69q-8,.67-27.25.67v26.59H329.9V709.36q-19.27,0-27.25-.67Q275.73,706,264.43,694.4c-8.86-9.09-13.15-28.8-13.15-59.16V287.62c39.21,1.11,69.76,14.07,91.92,38.88q31.57,35.56,38.55,109l25-4.32Z" transform="translate(-20.58 -265.02)"/>
+  </g>
+</svg>
