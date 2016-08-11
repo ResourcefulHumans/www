@@ -1,0 +1,13 @@
+<script type="text/javascript">
+  window._trackJs = {
+    token: 'd4d20cbb81614be18daf3a09104ce965',
+    application: '<%= data.name %>',
+    enabled: <%= data.environment === "production" ? 'true' : 'false' %>
+  };
+</script>
+<script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
+<script type="text/javascript">
+  trackJs.addMetadata('version', '<%= data.version %>');
+  trackJs.addMetadata('deployVersion', '<%= data.deployVersion %>');
+  trackJs.addMetadata('environment', '<%= data.environment %>');
+</script>
