@@ -63,12 +63,13 @@ $(() => {
   vm.heroSlider = new VerticalTextSlider($, $window)
   vm.testimonialSlider = new TestimonialSlider($, $window, $('#testimonials').find('*[role=list]'))
 
-  // Play garage on scroll
-  // Get instance of the plugin
+  // Play garage video once it becomes visible
   const $garage = $('#garage')
   vm.garageVideo = $garage.data('vide')
   $garage.on('visibility.visible', () => {
-    console.log('play video')
-    vm.garageVideo.getVideoObject().play()
+    const video = vm.garageVideo.getVideoObject()
+    if (video) {
+      video.play()
+    }
   })
 })
