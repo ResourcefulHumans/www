@@ -7,7 +7,22 @@ main {
       margin-bottom: 8rem;
     }
   }
-  h2 {
+  h1, h2 {
     text-transform: uppercase;
+  }
+  h1 {
+    font-size: 150%;
+  }
+  h2 {
+    font-size: 125%;
+  }
+  a {
+    color: $body-color;
+    border-bottom: 1px dotted rgba($body-color, 0.5);
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+      color: darken($body-color, 10%);
+      border-color: rgba(darken($body-color, 10%), 0.5);
+    }
   }
 }
