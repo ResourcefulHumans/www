@@ -1,0 +1,74 @@
+<form id="contact" class="container" onsubmit="return submitContactForm();" action="/#contact">
+  <header class="row hide-on-success">
+    <div class="col-xs">
+      <h1>Would you like to know more?</h1>
+    </div>
+  </header>
+  <section class="row show-on-success">
+    <div class="col-xs text-xs-center">
+      <h1>Thank you! We will get back to you as soon as possible.</h1>
+      <p>P.S.: You are awesome!</p>
+    </div>
+  </section>
+  <section class="row flex-items-xs-middle hide-on-success">
+    <div class="col-xs-3">
+      <img src="/img/pyramid-1.svg" alt="Image of a pyramid with four horizontal sections, the top section is colored red.">
+    </div>
+    <fieldset class="form-group col-xs offset-lg-1">
+      <label for="c-level" class="custom-control custom-radio">
+        <input type="radio" name="role" required value="c-level" id="c-level" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">as a c-level</span>
+      </label>
+      <p class="form-text">about <em class="bad">leaving outdated work structures behind</em> and
+        <em class="good">adopting the RH-Management Way</em></p>
+    </fieldset>
+  </section>
+  <section class="row flex-items-xs-middle hide-on-success">
+    <div class="col-xs-3">
+      <img src="
+    /img/pyramid-2.svg" alt="Image of a pyramid with four horizontal sections, the second section from the bottom is colored red.">
+    </div>
+    <fieldset class="form-group col-xs offset-lg-1">
+      <label for="teamlead" class="custom-control custom-radio">
+        <input type="radio" name="role" required value="teamlead" id="teamlead" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">as a team-leader</span>
+      </label>
+      <p class="form-text">about <em class="bad">giving up control</em> to <em class="good">create a networked team </em> with
+        our <em class="good">awesome tool</em> for Performance | Feedback | Meetings</p>
+    </fieldset>
+  </section>
+  <section class="row flex-items-xs-middle hide-on-success">
+    <div class="col-xs-3">
+      <img src="
+    /img/pyramid-3.svg" alt="Image of a pyramid with four horizontal sections with 6 small red dots randomly placed in the three bottom sections.">
+    </div>
+    <fieldset class="form-group col-xs offset-lg-1">
+      <label for="hrmanager" class="custom-control custom-radio">
+        <input type="radio" name="role" required value="teamlead" id="hrmanager" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">as a hr-manager</span>
+      </label>
+      <p class="form-text">about evolving from <em class="bad">HR Business Partner</em> to become a
+        licensed <em class="good">HR KILLER</em> and <em class="good">make HR the network designer</em></p>
+    </fieldset>
+  </section>
+  <section class="row flex-items-xs-middle hide-on-success">
+    <fieldset class="form-group col-xs offset-lg-4 offset-xs-3">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required name="email">
+      <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
+    </fieldset>
+  </section>
+  <section class="row hide-on-success">
+    <div class="col-xs offset-md-3 offset-lg-4">
+      <div class="g-recaptcha pull-xs-left" data-sitekey="6LeOXicTAAAAAHkxMzgL0Fyj6X_RxwrqzjUcKO5z" data-callback="captchaFilledCallback"
+           data-expired-callback="captchaExpiredCallback"></div>
+      <button type="submit" class="btn btn-success pull-xs-right">
+        <i class="ion ion-ios-paper-plane"></i>
+        <span>Contact me</span>
+      </button>
+    </div>
+  </section>
+</form>

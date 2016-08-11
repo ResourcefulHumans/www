@@ -1,0 +1,83 @@
+#contact {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  @include media-breakpoint-up(md) {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  @include media-breakpoint-up(lg) {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  @include media-breakpoint-up(xl) {
+    margin-top: 8rem;
+  }
+  h1 {
+    text-align: center;
+    font-size: 150%;
+    margin-bottom: 2rem;
+    @include media-breakpoint-up(md) {
+      font-size: 200%;
+      margin-bottom: 3rem;
+    }
+    @include media-breakpoint-up(lg) {
+      font-size: 250%;
+      margin-bottom: 4rem;
+    }
+  }
+  label, .form-text {
+    font-size: 100%;
+    @include media-breakpoint-up(lg) {
+      font-size: 115%;
+    }
+    margin-bottom: 0;
+  }
+  .good {
+    padding: 0 0.25rem;
+    margin-right: 0.25rem;
+    border: 2px solid darken($brand-success, 20%);
+    border-radius: 0.5rem;
+    white-space: nowrap;
+  }
+  .bad {
+    padding: 0 0.25rem;
+    margin-right: 0.25rem;
+    border: 2px solid darken($brand-danger, 20%);
+    border-radius: 0.5rem;
+    white-space: nowrap;
+  }
+  .custom-control-indicator {
+    width: 1.5rem;
+    height: 1.5rem;
+    @include media-breakpoint-up(lg) {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  .custom-control-description {
+    margin-left: 1.5rem;
+    @include media-breakpoint-up(lg) {
+      margin-left: 2rem;
+    }
+  }
+  fieldset {
+    background-color: rgba($body-color, 0.15);
+    border-radius: 1rem;
+    padding: 1rem;
+    @include media-breakpoint-up(lg) {
+      padding: 1.5rem;
+    }
+  }
+  .show-on-success {
+    display: none;
+  }
+  &.success {
+    .hide-on-success {
+      display: none;
+    }
+    .show-on-success {
+      display: block;
+    }
+  }
+
+}

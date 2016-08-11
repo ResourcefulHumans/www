@@ -1,6 +1,6 @@
 'use strict'
 
-/* global window, document */
+/* global window, document, alert */
 
 const $ = require('jquery')
 require('tether')
@@ -72,4 +72,24 @@ $(() => {
       video.play()
     }
   })
+
+  // Contact form
+  let captchaFilled = false
+  window.captchaFilledCallback = (e) => {
+    captchaFilled = true
+    console.log('captcha filled')
+  }
+  window.captchaExpiredCallback = (e) => {
+    captchaFilled = false
+    console.log('captcha expired')
+  }
+  window.submitContactForm = () => {
+    if (!captchaFilled) {
+      alert('Please fill the reCAPTCHA!')
+      return false
+    }
+    $('#contact').addClass('success')
+    return false
+  }
 })
+
