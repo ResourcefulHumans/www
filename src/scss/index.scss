@@ -22,6 +22,7 @@ $bad-color: #f39019; // orange, used to highlight problems
 @import "navbar";
 @import "hero";
 @import "mixins";
+@import "garage";
 @import "footer";
 @import "content";
 @import "intro";
@@ -44,4 +45,8 @@ img {
 
 em {
   font-style: normal;
+}
+
+.flex {
+  display: flex;
 }
