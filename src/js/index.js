@@ -106,6 +106,9 @@ $(() => {
       })
       .done(() => {
         $contact.addClass('success')
+        $('html, body').animate({
+          scrollTop: $contact.offset().top
+        }, 1000)
       })
     return false
   }

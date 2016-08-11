@@ -1,6 +1,7 @@
 #contact {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  margin-top: 40px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   @include media-breakpoint-up(md) {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -15,7 +16,7 @@
   h1 {
     text-align: center;
     font-size: 150%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     @include media-breakpoint-up(md) {
       font-size: 200%;
       margin-bottom: 3rem;
@@ -25,26 +26,41 @@
       margin-bottom: 4rem;
     }
   }
-  label, .form-text {
+  .form-text {
+    font-size: 85%;
+  }
+  label {
     font-size: 100%;
+  }
+  label, .form-text {
+    line-height: 1.75rem;
     @include media-breakpoint-up(lg) {
+      line-height: 2.5rem;
       font-size: 115%;
     }
     margin-bottom: 0;
   }
   .good {
-    padding: 0 0.25rem;
-    margin-right: 0.25rem;
-    border: 2px solid darken($brand-success, 20%);
-    border-radius: 0.5rem;
-    white-space: nowrap;
+    text-shadow: 1px 1px 0 $brand-success, 1px -1px 0 $brand-success, -1px 1px 0 $brand-success, -1px -1px 0 $brand-success;
+    @include media-breakpoint-up(sm) {
+      text-shadow: none;
+      padding: 0 0.25rem;
+      margin-right: 0.25rem;
+      border: 2px solid darken($brand-success, 20%);
+      border-radius: 0.5rem;
+      white-space: nowrap;
+    }
   }
   .bad {
-    padding: 0 0.25rem;
-    margin-right: 0.25rem;
-    border: 2px solid darken($brand-danger, 20%);
-    border-radius: 0.5rem;
-    white-space: nowrap;
+    text-shadow: 1px 1px 0 darken($brand-danger, 20%), 1px -1px 0 darken($brand-danger, 20%), -1px 1px 0 darken($brand-danger, 20%), -1px -1px 0 darken($brand-danger, 20%);
+    @include media-breakpoint-up(sm) {
+      text-shadow: none;
+      padding: 0 0.25rem;
+      margin-right: 0.25rem;
+      border: 2px solid darken($brand-danger, 20%);
+      border-radius: 0.5rem;
+      white-space: nowrap;
+    }
   }
   .custom-control-indicator {
     width: 1.5rem;
@@ -62,8 +78,14 @@
   }
   fieldset {
     background-color: rgba($body-color, 0.15);
-    border-radius: 1rem;
     padding: 1rem;
+    margin-bottom: 0.1rem;
+    @include media-breakpoint-up(sm) {
+      border-radius: 1rem;
+    }
+    @include media-breakpoint-up(md) {
+      margin-bottom: 1rem;
+    }
     @include media-breakpoint-up(lg) {
       padding: 1.5rem;
     }

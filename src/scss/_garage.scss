@@ -4,6 +4,7 @@
     h1 {
       text-align: center;
       font-size: 115%;
+      margin-top: 40px;
       padding-top: 2rem;
       padding-bottom: 2rem;
       @include media-breakpoint-up(md) {
@@ -44,6 +45,7 @@
     font-size: 100%;
     line-height: 1.75rem;
     padding-top: 1rem;
+    padding-bottom: 2rem;
     @include media-breakpoint-up(md) {
       padding-top: 2rem;
       padding-bottom: 2rem;

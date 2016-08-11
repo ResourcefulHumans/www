@@ -1,7 +1,6 @@
 #intro {
   text-transform: uppercase;
   text-align: center;
-  margin-top: 0;
   @include media-breakpoint-up(sm) {
     overflow: hidden;
     margin-top: 2rem;
@@ -28,6 +27,7 @@
     }
   }
   *[role=heading] {
+    margin-top: 40px;
     font-size: 200%;
     @include media-breakpoint-up(md) {
       font-size: 300%;
