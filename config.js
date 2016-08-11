@@ -13,6 +13,7 @@ nconf
       'host',
       'port',
       'web_host',
+      'api_host',
       'aws__access_key_id',
       'aws__secret_access_key',
       'aws__website_bucket'

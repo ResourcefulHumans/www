@@ -75,12 +75,14 @@ $(() => {
 
   // Contact form
   let captchaFilled = false
-  window.captchaFilledCallback = (e) => {
+  let captchaToken
+  window.captchaFilledCallback = (token) => {
     captchaFilled = true
-    console.log('captcha filled')
+    captchaToken = token
   }
-  window.captchaExpiredCallback = (e) => {
+  window.captchaExpiredCallback = () => {
     captchaFilled = false
+    captchaToken = null
     console.log('captcha expired')
   }
   window.submitContactForm = () => {
@@ -88,8 +90,23 @@ $(() => {
       alert('Please fill the reCAPTCHA!')
       return false
     }
-    $('#contact').addClass('success')
+    const $contact = $('#contact')
+    $contact.find('button').attr('disabled', 'disabled')
+    $
+      .ajax({
+        method: 'POST',
+        url: $contact.attr('action'),
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify({
+          role: $contact.find('input[name=role]:checked').val(),
+          email: $contact.find('input[type=email]').val(),
+          token: captchaToken
+        })
+      })
+      .done(() => {
+        $contact.addClass('success')
+      })
     return false
   }
 })
-
