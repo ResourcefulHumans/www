@@ -1,40 +1,59 @@
 .DEFAULT_GOAL := help
 .PHONY: help build development
 
+jssrcfiles := $(wildcard src/js/*.js)
+jssrcbasenames := $(notdir $(basename $(jssrcfiles)))
+jsbrowserified := $(foreach f,$(jssrcbasenames),build/js/$(f).js)
+jsminified := $(foreach f,$(jssrcbasenames),build/js/$(f).min.js)
+cssrcfiles := $(wildcard src/scss/*.scss)
+cssbasenames := $(notdir $(basename $(cssrcfiles)))
+csssassed := $(foreach f,$(cssbasenames),build/css/$(f).css)
+cssminified := $(foreach f,$(cssbasenames),build/css/$(f).min.css)
+
+debug: ## Print variables
+	@echo "jssrcfiles=$(jssrcfiles)"
+	@echo "jssrcbasenames=$(jssrcbasenames)"
+	@echo "jsbrowserified=$(jsbrowserified)"
+	@echo "jsminified=$(jsminified)"
+	@echo "cssrcfiles=$(cssrcfiles)"
+	@echo "cssbasenames=$(cssbasenames)"
+	@echo "csssassed=$(csssassed)"
+	@echo "cssminified=$(cssminified)"
+
 development: ## Build for development environment
 	ENVIRONMENT=development make build
 
-build: build/css/index.min.css build/js/index.min.js build/*.html build/favicon.ico build/robots.txt ## Build for production environment
+build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html build/favicon.ico build/robots.txt ## Build for production environment
 
 build/js:
 	mkdir -p build/js
 
-build/js/index.js: package.json build/js src/js/*.js
-	./node_modules/.bin/browserify src/js/index.js -o $@
+build/js/%.js: src/js/%.js
+	./node_modules/.bin/browserify $< -o $@
 
-build/js/index.min.js: build/js/index.js
+build/js/%.min.js: build/js/%.js
 ifeq "${ENVIRONMENT}" "development"
-	cp -u build/js/index.js $@
+	cp -u $< $@
 else
-	./node_modules/.bin/uglifyjs build/js/index.js -o $@
+	./node_modules/.bin/uglifyjs $< -o $@
 endif
 
 build/css:
 	mkdir -p build/css
-
-build/css/index.css: src/scss/*.scss build/fonts
-	./node_modules/.bin/node-sass src/scss/index.scss $@
 
 build/fonts: node_modules/font-awesome/fonts/*.* node_modules/ionicons/dist/fonts/*.*
 	mkdir -p build/fonts
 	cp -u node_modules/font-awesome/fonts/*.* build/fonts/
 	cp -u node_modules/ionicons/dist/fonts/*.* build/fonts/
 
-build/css/index.min.css: build/css build/css/index.css
+build/css/%.css: src/scss/%.scss build/fonts build/css
+	./node_modules/.bin/node-sass $< $@
+
+build/css/%.min.css: build/css/%.css
 ifeq ($(ENVIRONMENT),development)
-	cp -u build/css/index.css $@
+	cp -u $< $@
 else
-	./node_modules/.bin/uglifycss build/css/index.css > $@
+	./node_modules/.bin/uglifycss $< > $@
 endif
 
 build/*.html: src/*.html src/includes/*.html build/img

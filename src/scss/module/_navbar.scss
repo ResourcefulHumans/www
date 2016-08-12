@@ -25,18 +25,18 @@ $navbarInnerHeight: 40px;
       font-size: 1.15rem;
     }
   }
-  .nav-link {
+  .nav-item {
     @include transition(all .2s ease-in-out);
     color: $gray-lightest;
-    &:hover {
-      color: $brand-primary;
-    }
     // lines between
     border-left: 1px solid rgba(#fff, 0.5);
     padding: 0 0 0 1rem;
     &:first-child {
       border-left: 0;
     }
+  }
+  .nav-link:hover {
+    color: $brand-primary;
   }
   .navbar-toggler.btn-link {
     @include transition(all .2s ease-in-out);
@@ -51,16 +51,16 @@ body.scrolling {
   .navbar-fixed-top {
     background-color: $gray-lightest;
     box-shadow: 0 0 15px $gray-dark;
-    .nav-link {
+    .nav-item {
       color: rgba(invert($body-color), 0.85);
-      &:hover {
-        color: $brand-primary;
-      }
       // lines between
       border-left: 1px solid rgba(invert($body-color), 0.25);
       &:first-child {
         border-left: 0;
       }
+    }
+    .nav-link:hover {
+      color: $brand-primary;
     }
     .navbar-toggler.btn-link {
       color: rgba(invert($body-color), 0.85);
@@ -84,7 +84,7 @@ body.scrolling {
       padding-bottom: 0;
     }
   }
-  .nav-link {
+  .nav-item {
     @include transition(all .2s ease-in-out);
     color: $gray-lightest;
     &:hover {

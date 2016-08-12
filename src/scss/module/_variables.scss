@@ -1,0 +1,17 @@
+$enable-flex: true;
+$enable-transitions: true;
+$brand-primary: #47a0f2;
+$brand-secondary: #0d62b2;
+$body-bg: $brand-primary;
+$body-color: #fff;
+$modifier: 2;
+$font-size-h1: 2.5rem * $modifier;
+$font-size-h2: 2rem * $modifier;
+$font-size-h3: 1.75rem * $modifier;
+$font-size-h4: 1.5rem * $modifier;
+$font-size-h5: 1.25rem * $modifier;
+$font-size-h6: 1rem * $modifier;
+$font-size-base: 1.5rem;
+$headings-font-weight: Normal;
+$good-color: #70bf41; // green, used to highlight solutions
+$bad-color: #f39019; // orange, used to highlight problems
