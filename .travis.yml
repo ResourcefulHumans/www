@@ -21,7 +21,6 @@ addons:
     packages:
       - python-pip
 script:
-  - make build
   - npm run lint
 after_success:
   - make deploy
