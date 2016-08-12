@@ -1,10 +1,13 @@
 .DEFAULT_GOAL := help
 .PHONY: help build development
 
+# Build variables for JS artefacts
 jssrcfiles := $(wildcard src/js/*.js)
 jssrcbasenames := $(notdir $(basename $(jssrcfiles)))
 jsbrowserified := $(foreach f,$(jssrcbasenames),build/js/$(f).js)
 jsminified := $(foreach f,$(jssrcbasenames),build/js/$(f).min.js)
+
+# Build variables for CSS artefacts
 cssrcfiles := $(wildcard src/scss/*.scss)
 cssbasenames := $(notdir $(basename $(cssrcfiles)))
 csssassed := $(foreach f,$(cssbasenames),build/css/$(f).css)
@@ -25,10 +28,24 @@ development: ## Build for development environment
 
 build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html build/favicon.ico build/robots.txt ## Build for production environment
 
+deploy: ## Deploy to production
+	rm -rf build
+	ENVIRONMENT=production make -B build
+	s3cmd \
+		--access_key="$(shell node console config aws:access_key_id)" \
+		--secret_key="$(shell node console config aws:secret_access_key)" \
+		--region=$(shell node console config aws:region) \
+		sync -M --no-mime-magic --delete-removed ./build/ s3://$(shell node console config aws:website_bucket)/
+
+help: ## (default), display the list of make commands
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+# JavaScript
+
 build/js:
 	mkdir -p build/js
 
-build/js/%.js: src/js/%.js
+build/js/%.js: src/js/%.js build/js
 	./node_modules/.bin/browserify $< -o $@
 
 build/js/%.min.js: build/js/%.js
@@ -37,6 +54,8 @@ ifeq "${ENVIRONMENT}" "development"
 else
 	./node_modules/.bin/uglifyjs $< -o $@
 endif
+
+# CSS
 
 build/css:
 	mkdir -p build/css
@@ -56,8 +75,12 @@ else
 	./node_modules/.bin/uglifycss $< > $@
 endif
 
+# HTML
+
 build/*.html: src/*.html src/includes/*.html build/img
 	./node_modules/.bin/rheactor-build-views build -m ./config ./src ./build
+
+# Assets
 
 build/img: src/img/*.*
 	mkdir -p build/img
@@ -68,17 +91,3 @@ build/favicon.ico: src/favicon/*.*
 
 build/robots.txt: src/robots.txt
 	cp -u src/robots.txt build/
-
-deploy: ## Deploy to production
-	rm -rf build
-	ENVIRONMENT=production make -B build
-	rm build/js/index.js
-	rm build/css/index.css
-	s3cmd \
-		--access_key="$(shell node console config aws:access_key_id)" \
-		--secret_key="$(shell node console config aws:secret_access_key)" \
-		--region=$(shell node console config aws:region) \
-		sync -M --no-mime-magic --delete-removed ./build/ s3://$(shell node console config aws:website_bucket)/
-
-help: ## (default), display the list of make commands
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
