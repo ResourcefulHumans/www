@@ -1,8 +1,8 @@
 {
   "name": "www",
-  "appName": "Resourceful Humans - Consulting: Management Framework, Peer Feedback, Simple, Social, Realtime, Entrepreneurial",
+  "appName": "Resourceful Humans - turn your organisation into an entrepreneurial network",
   "version": "2.0.5",
-  "description": "The Way of Resourceful Humans is the most thoughtful framework to kill Complexity and Complicatedness in your Enterprise. Turn Peer Feedback and entrepreneurial work of Human Resources into Resourceful Humans. Simple. Social. Realtime. Use our work (self-) managemanent tools like staRHs, netwoRHk and caRHds.",
+  "description": "The Way of Resourceful Humans creates a network of autonomous teams to get any meaningful mission done.",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
