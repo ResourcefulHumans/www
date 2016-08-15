@@ -1,6 +1,10 @@
 .DEFAULT_GOAL := help
 .PHONY: help build development
 
+# Cancel implicit rules
+.SUFFIXES:
+%: %,v
+
 # Build variables for JS artefacts
 jssrcfiles := $(wildcard src/js/*.js)
 jssrcbasenames := $(notdir $(basename $(jssrcfiles)))
@@ -12,6 +16,8 @@ cssrcfiles := $(wildcard src/scss/*.scss)
 cssbasenames := $(notdir $(basename $(cssrcfiles)))
 csssassed := $(foreach f,$(cssbasenames),build/css/$(f).css)
 cssminified := $(foreach f,$(cssbasenames),build/css/$(f).min.css)
+
+.SECONDARY: $(jsbrowserified) $(csssassed)
 
 debug: ## Print variables
 	@echo "jssrcfiles=$(jssrcfiles)"
@@ -31,6 +37,7 @@ build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html bui
 deploy: ## Deploy to production
 	rm -rf build
 	ENVIRONMENT=production make -B build
+	rm $(jsbrowserified) $(csssassed)
 	s3cmd \
 		--access_key="$(shell node console config aws:access_key_id)" \
 		--secret_key="$(shell node console config aws:secret_access_key)" \
@@ -45,7 +52,7 @@ help: ## (default), display the list of make commands
 build/js:
 	mkdir -p build/js
 
-build/js/%.js: src/js/%.js build/js
+build/js/%.js: src/js/%.js src/js/*.js src/js/**/*.js build/js
 	./node_modules/.bin/browserify $< -o $@
 
 build/js/%.min.js: build/js/%.js
@@ -65,7 +72,7 @@ build/fonts: node_modules/font-awesome/fonts/*.* node_modules/ionicons/dist/font
 	cp -u node_modules/font-awesome/fonts/*.* build/fonts/
 	cp -u node_modules/ionicons/dist/fonts/*.* build/fonts/
 
-build/css/%.css: src/scss/%.scss build/fonts build/css
+build/css/%.css: src/scss/%.scss src/scss/*.scss src/scss/**/*.scss build/fonts build/css
 	./node_modules/.bin/node-sass $< $@
 
 build/css/%.min.css: build/css/%.css
