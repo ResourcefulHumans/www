@@ -1,7 +1,7 @@
 {
   "name": "www",
   "appName": "Resourceful Humans - turn your organisation into an entrepreneurial network",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "The Way of Resourceful Humans creates a network of autonomous teams to get any meaningful mission done.",
   "main": "index.html",
   "scripts": {
