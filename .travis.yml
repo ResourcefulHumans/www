@@ -10,7 +10,7 @@ notifications:
   email: false
   slack:
     rooms:
-      - rhway:VfKOy61tSbzZwZXAe8KnPnNj#homepage-redesign
+      - rhway:VfKOy61tSbzZwZXAe8KnPnNj#homepage
 node_js:
   - 'stable'
 install:
