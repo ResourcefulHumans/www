@@ -1,7 +1,6 @@
 #intro {
   text-transform: uppercase;
   text-align: center;
-  padding-top: $navbarInnerHeight;
   @include media-breakpoint-up(sm) {
     overflow: hidden;
     margin-top: 2rem;
