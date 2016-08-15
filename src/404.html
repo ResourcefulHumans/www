@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="<%= data.description %>">
+  <meta name="version" content="<%= data.version %>-<%= data.deployVersion %>">
+  <title>404 | <%= data.appName %></title>
+  <base href="/">
+  <link rel="canonical" href="<%= data['webHost'] %>/404.html" />
+  <link rel="stylesheet" href="/css/content-page.min.css?v=<%= data.version %>-<%= data.deployVersion %>">
+  <%= includes.favicon %>
+  <%= includes.fonts %>
+</head>
+<body>
+<%= includes.navigation %>
+<main class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-8 offset-lg-2">
+      <article class="content">
+        <h1>Oops. Page not found!</h1>
+        <p>Unfortunately, the content you were looking for does not exist.</p>
+        <p>Please <a href="/">navigate to the start page</a>.</p>
+      </article>
+    </div>
+  </div>
+</main>
+<%= includes.footer %>
+<script type="text/javascript" src="/js/content-page.min.js?v=<%= data.version %>-<%= data.deployVersion %>"></script>
+</body>
+</html>
