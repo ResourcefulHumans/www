@@ -9,12 +9,12 @@
     margin-top: 8rem;
     margin-bottom: 8rem;
   }
-  *[role=list] {
+  article {
     position: relative;
     height: 400px;
     overflow: hidden;
   }
-  *[role=listitem] {
+  section {
     height: 100%;
     width: 100%;
     position: absolute;

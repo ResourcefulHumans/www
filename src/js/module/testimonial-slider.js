@@ -6,7 +6,7 @@ function TestimonialSlider ($, $window, list) {
   self.$ = $
   self.list = list
   self.slides = []
-  this.list.find('*[role=listitem]').each((i, el) => {
+  this.list.find('section').each((i, el) => {
     const slide = $(el)
     slide.attr('aria-expanded', i === 0 ? 'true' : 'false')
     self.slides.push(slide)

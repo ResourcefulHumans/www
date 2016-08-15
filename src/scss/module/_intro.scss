@@ -13,21 +13,21 @@
     margin-top: 8rem;
   }
 
-  *[role=listitem] {
+  section {
     padding: 2rem;
     @include media-breakpoint-up(sm) {
       border: 3px solid $body-color;
       border-radius: 15px;
     }
-    &:first-child {
-      background-color: $body-color;
-      color: $brand-secondary;
-    }
+    background-color: $body-color;
+    color: $brand-secondary;
     &:last-child {
       border-bottom: 3px solid $body-color;
+      background-color: transparent;
+      color: $body-color;
     }
   }
-  *[role=heading] {
+  h3 {
     font-size: 200%;
     @include media-breakpoint-up(md) {
       font-size: 300%;
@@ -51,16 +51,16 @@
       transform: translateY(0);
     }
   }
-  *[role=listitem] {
+  section {
     @include media-breakpoint-up(sm) {
-      transform: translateY(500px);
-      &:first-child {
-        transform: translateY(-500px);
+      transform: translateY(-500px);
+      &:last-child {
+        transform: translateY(500px);
       }
     }
   }
   &.was-visible {
-    *[role=listitem] {
+    section {
       animation: come-in 1.5s ease forwards;
     }
   }

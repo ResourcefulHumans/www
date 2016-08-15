@@ -20,7 +20,7 @@ $(() => {
   const vm = {}
   vm.scroll = new Scroll($, $window, $body)
   vm.heroSlider = new VerticalTextSlider($, $window)
-  vm.testimonialSlider = new TestimonialSlider($, $window, $('#testimonials').find('*[role=list]'))
+  vm.testimonialSlider = new TestimonialSlider($, $window, $('#testimonials').find('article'))
   vm.navigation = new Navigation($, $htmlBody, window, document)
 
   const positionRHWayLogo = () => {
