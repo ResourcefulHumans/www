@@ -40,33 +40,28 @@ BUCKET := $(shell node console config aws:website_bucket)
 REGION := $(shell node console config aws:region)
 VERSION := $(shell node console config version)
 DEPLOY_VERSION := $(shell node console config deployVersion)
+S3_CFG := /tmp/.s3cfg-$(BUCKET)
 deploy: ## Deploy to production
-	#rm -rf build
-	#ENVIRONMENT=production make -B build
-	#rm $(jsbrowserified) $(csssassed)
-	@echo $(REGION)
-	s3cmd \
-		--access_key="$(ACCESS_KEY)" \
-		--secret_key="$(SECRET_KEY)" \
-		--region=$(REGION) \
+	@echo "[default]" >> $(S3_CFG)
+	@echo "access_key = $(ACCESS_KEY)" >> $(S3_CFG)
+	@echo "secret_key = $(SECRET_KEY)" >> $(S3_CFG)
+	@echo "region = $(REGION)" >> $(S3_CFG)
+	rm -rf build
+	ENVIRONMENT=production make -B build
+	rm $(jsbrowserified) $(csssassed)
+	s3cmd -c $(S3_CFG) \
 		sync -M --no-mime-magic --delete-removed ./build/ s3://$(BUCKET)/
 	# Expires 10 minutes for html files
-	s3cmd \
-		--access_key="$(ACCESS_KEY)" \
-		--secret_key="$(SECRET_KEY)" \
-		--region=$(REGION) \
+	s3cmd -c $(S3_CFG) \
 		modify --recursive \
 		--add-header=Cache-Control:public,max-age=600 \
-		--add-header=X-Version:$(VERSION)-$(DEPLOY_VERSION) \
+		--add-header=x-amz-meta-version:$(VERSION)-$(DEPLOY_VERSION) \
 		s3://$(BUCKET)/ --exclude "*" --include "*.html"
 	# Expires 1 year for everything else
-	s3cmd \
-		--access_key="$(ACCESS_KEY)" \
-		--secret_key="$(SECRET_KEY)" \
-		--region=$(REGION) \
+	s3cmd -c $(S3_CFG) \
 		modify --recursive \
 		--add-header=Cache-Control:public,max-age=31536000 \
-		--add-header=X-Version:$(VERSION)-$(DEPLOY_VERSION) \
+		--add-header=x-amz-meta-version:$(VERSION)-$(DEPLOY_VERSION) \
 		--exclude "*.html" s3://$(BUCKET)/
 
 help: ## (default), display the list of make commands
