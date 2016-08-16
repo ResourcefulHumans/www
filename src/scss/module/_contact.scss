@@ -13,17 +13,8 @@
     padding-top: 8rem;
   }
   h2 {
-    text-align: center;
-    font-size: 150%;
-    margin-bottom: 1rem;
-    @include media-breakpoint-up(md) {
-      font-size: 200%;
-      margin-bottom: 3rem;
-    }
-    @include media-breakpoint-up(lg) {
-      font-size: 250%;
-      margin-bottom: 4rem;
-    }
+    @include section-headline();
+    @include spacing();
   }
   .form-text {
     font-size: 85%;

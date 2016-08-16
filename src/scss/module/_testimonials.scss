@@ -28,18 +28,13 @@
       position: relative;
       clear: both;
       line-height: 105%;
-      font-size: 115%;
+      @include section-text();
       @include media-breakpoint-up(md) {
         padding-left: $grid-gutter-width * 1.5;
-        font-size: 150%;
         width: 65%;
       }
       @include media-breakpoint-up(lg) {
         padding-left: $grid-gutter-width * 2;
-        font-size: 175%;
-      }
-      @include media-breakpoint-up(xl) {
-        font-size: 200%;
       }
       &:before {
         @include fa-icon();
@@ -53,16 +48,8 @@
         }
       }
       &.long {
+        @include section-text(0.75);
         font-size: 100%;
-        @include media-breakpoint-up(md) {
-          font-size: 110%;
-        }
-        @include media-breakpoint-up(lg) {
-          font-size: 120%;
-        }
-        @include media-breakpoint-up(xl) {
-          font-size: 140%;
-        }
       }
     }
 

@@ -3,24 +3,8 @@
   header {
     text-transform: uppercase;
     h2 {
-      text-align: center;
-      font-size: 115%;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      @include media-breakpoint-up(md) {
-        font-size: 150%;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-      @include media-breakpoint-up(lg) {
-        font-size: 175%;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-      }
-      @include media-breakpoint-up(xl) {
-        font-size: 225%;
-        padding-top: 8rem;
-      }
+      @include section-headline();
+      @include spacing();
     }
   }
   .references {
@@ -42,27 +26,20 @@
     }
   }
   footer {
-    font-size: 115%;
-    line-height: 1.75rem;
     padding-top: 1rem;
     padding-bottom: 2rem;
+    @include section-text();
     @include media-breakpoint-up(md) {
       padding-top: 2rem;
       padding-bottom: 2rem;
-      font-size: 150%;
-      line-height: 2rem;
     }
     @include media-breakpoint-up(lg) {
       padding-top: 4rem;
       padding-bottom: 4rem;
-      font-size: 175%;
-      line-height: 2.5rem;
     }
     @include media-breakpoint-up(xl) {
       padding-top: 8rem;
       padding-bottom: 8rem;
-      font-size: 200%;
-      line-height: 3rem;
     }
   }
 }
