@@ -55,7 +55,10 @@ deploy: ## Deploy to production
 		--access_key="$(ACCESS_KEY)" \
 		--secret_key="$(SECRET_KEY)" \
 		--region=$(REGION) \
-		modify --recursive --add-header=Cache-Control:public,max-age=600 s3://$(BUCKET)/ --exclude "*" --include "*.html"
+		modify --recursive \
+		--add-header=Cache-Control:public,max-age=600 \
+		--add-header=X-Version:$(VERSION)-$(DEPLOY_VERSION) \
+		s3://$(BUCKET)/ --exclude "*" --include "*.html"
 	# Expires 1 year for everything else
 	s3cmd \
 		--access_key="$(ACCESS_KEY)" \
