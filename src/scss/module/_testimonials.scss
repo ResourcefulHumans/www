@@ -68,6 +68,9 @@
 
     *[role=note] {
       line-height: 100%;
+      @include media-breakpoint-up(sm) {
+        width: 50%;
+      }
       @include media-breakpoint-up(md) {
         width: 80%;
         font-size: 80%;
@@ -112,7 +115,7 @@
         max-height: 85%;
       }
       position: absolute;
-      bottom: 0;
+      bottom: -2px;
     }
 
     $speed: 0.75s;
