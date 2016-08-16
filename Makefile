@@ -38,6 +38,8 @@ ACCESS_KEY := $(shell node console config aws:access_key_id)
 SECRET_KEY := $(shell node console config aws:secret_access_key)
 BUCKET := $(shell node console config aws:website_bucket)
 REGION := $(shell node console config aws:region)
+VERSION := $(shell node console config version)
+DEPLOY_VERSION := $(shell node console config deployVersion)
 deploy: ## Deploy to production
 	#rm -rf build
 	#ENVIRONMENT=production make -B build
@@ -59,7 +61,10 @@ deploy: ## Deploy to production
 		--access_key="$(ACCESS_KEY)" \
 		--secret_key="$(SECRET_KEY)" \
 		--region=$(REGION) \
-		modify --recursive --add-header=Cache-Control:public,max-age=31536000 --exclude "*.html" s3://$(BUCKET)/
+		modify --recursive \
+		--add-header=Cache-Control:public,max-age=31536000 \
+		--add-header=X-Version:$(VERSION)-$(DEPLOY_VERSION) \
+		--exclude "*.html" s3://$(BUCKET)/
 
 help: ## (default), display the list of make commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
