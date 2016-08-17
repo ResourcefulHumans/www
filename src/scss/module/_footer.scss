@@ -1,7 +1,7 @@
 body > footer {
   color: rgba($body-color, 0.75);
   font-size: 75%;
-  padding: 4rem 0;
+  @include spacing();
   a {
     color: rgba($body-color, 0.75);
     text-decoration: none;
