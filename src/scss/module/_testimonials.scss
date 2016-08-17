@@ -11,7 +11,7 @@
   }
   article {
     position: relative;
-    height: 400px;
+    height: 450px;
     overflow: hidden;
   }
   section {
@@ -91,18 +91,18 @@
     }
 
     img {
-      max-height: 40%;
+      max-height: 35%;
       width: auto;
       display: none;
       @include media-breakpoint-up(sm) {
         display: inline-block;
-        max-height: 65%;
+        max-height: 60%;
       }
       @include media-breakpoint-up(md) {
-        max-height: 85%;
+        max-height: 80%;
       }
       position: absolute;
-      bottom: -2px;
+      bottom: -3px;
     }
 
     $speed: 0.75s;
