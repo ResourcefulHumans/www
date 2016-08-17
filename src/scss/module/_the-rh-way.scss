@@ -1,3 +1,17 @@
+@mixin animateOnVisible() {
+  &.was-visible {
+    @include media-breakpoint-up(lg) {
+      animation: come-in 2s ease forwards;
+    }
+  }
+}
+
+@keyframes come-in {
+  to {
+    transform: translateX(0);
+  }
+}
+
 #the-rh-way {
   h2 {
     @include section-headline();
@@ -102,9 +116,16 @@
     }
   }
   section {
+    .logo {
+      @include media-breakpoint-up(lg) {
+        transform: translateX(-200%);
+        @include animateOnVisible();
+      }
+    }
     .row {
       &.half-spacer, &.full-spacer {
         @include media-breakpoint-up(lg) {
+          transform: translateX(-200%);
           position: relative;
           &:after {
             width: 27px;
@@ -117,6 +138,7 @@
             top: 50%;
             transform: translateY(-27px);
           }
+          @include animateOnVisible();
         }
       }
     }
@@ -124,9 +146,15 @@
       @include media-breakpoint-up(lg) {
         border-left: 1px solid $body-color;
       }
+      .logo {
+        @include media-breakpoint-up(lg) {
+          transform: translateX(200%);
+        }
+      }
       .row {
         @include media-breakpoint-up(lg) {
           &.half-spacer, &.full-spacer {
+            transform: translateX(200%);
             &:after {
               left: -25px;
               width: 25px;
