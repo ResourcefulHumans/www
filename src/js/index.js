@@ -1,6 +1,6 @@
 'use strict'
 
-/* global window, document, alert */
+/* global window, document, alert, grecaptcha */
 
 const $ = require('jquery')
 require('tether')
@@ -52,19 +52,25 @@ $(() => {
   })
 
   // Contact form
-  let captchaFilled = false
+  let isCaptchaFilled = false
   let captchaToken
-  window.captchaFilledCallback = (token) => {
-    captchaFilled = true
+  window.reCaptchaLoaded = () => {
+    grecaptcha.render('recaptcha', {
+      'sitekey': $('script[src^="https://www.google.com/recaptcha/api.js"]').data('sitekey'),
+      'callback': captchaFilled,
+      'expired-callback	': captchaExpired
+    })
+  }
+  const captchaFilled = (token) => {
+    isCaptchaFilled = true
     captchaToken = token
   }
-  window.captchaExpiredCallback = () => {
-    captchaFilled = false
+  const captchaExpired = () => {
+    isCaptchaFilled = false
     captchaToken = null
-    console.log('captcha expired')
   }
   window.submitContactForm = () => {
-    if (!captchaFilled) {
+    if (!isCaptchaFilled) {
       alert('Please fill the reCAPTCHA!')
       return false
     }
