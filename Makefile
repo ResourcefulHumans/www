@@ -41,6 +41,8 @@ REGION := $(shell node console config aws:region)
 VERSION := $(shell node console config version)
 DEPLOY_VERSION := $(shell node console config deployVersion)
 S3_CFG := /tmp/.s3cfg-$(BUCKET)
+EXPIRES_LONG := $(shell LC_ALL=C date --date="1 year" +"%a, %d %b %Y %X %z")
+EXPIRES_SHORT := $(shell LC_ALL=C date --date="10 min" +"%a, %d %b %Y %X %z")
 deploy: ## Deploy to production
 	@echo "[default]" >> $(S3_CFG)
 	@echo "access_key = $(ACCESS_KEY)" >> $(S3_CFG)
@@ -55,12 +57,14 @@ deploy: ## Deploy to production
 	s3cmd -c $(S3_CFG) \
 		modify --recursive \
 		--add-header=Cache-Control:public,max-age=600 \
+		--add-header="Expires:$(EXPIRES_SHORT)" \
 		--add-header=x-amz-meta-version:$(VERSION)-$(DEPLOY_VERSION) \
 		s3://$(BUCKET)/ --exclude "*" --include "*.html"
 	# Expires 1 year for everything else
 	s3cmd -c $(S3_CFG) \
 		modify --recursive \
 		--add-header=Cache-Control:public,max-age=31536000 \
+		--add-header="Expires:$(EXPIRES_LONG)" \
 		--add-header=x-amz-meta-version:$(VERSION)-$(DEPLOY_VERSION) \
 		--exclude "*.html" s3://$(BUCKET)/
 
