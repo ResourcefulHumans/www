@@ -115,7 +115,7 @@
       margin-bottom: 5rem;
     }
   }
-  section {
+  div.lane {
     .logo {
       @include media-breakpoint-up(lg) {
         transform: translateX(-200%);
