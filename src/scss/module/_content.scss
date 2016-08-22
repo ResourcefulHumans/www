@@ -26,3 +26,16 @@ main {
     }
   }
 }
+
+.gallery {
+  img {
+    width: 50%;
+    float: left;
+  }
+}
+
+.white {
+  background-color: $body-color;
+  color: rgba(#000, 0.85);
+  @include spacing();
+}
