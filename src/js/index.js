@@ -1,6 +1,6 @@
 'use strict'
 
-/* global window, document, alert, grecaptcha */
+/* global window, document, alert, grecaptcha, ga */
 
 const $ = require('jquery')
 require('tether')
@@ -77,6 +77,7 @@ $(() => {
       return false
     }
     const $contact = $('#contact')
+    const role = $contact.find('input[name=role]:checked').val()
     $contact.find('button').attr('disabled', 'disabled')
     $
       .ajax({
@@ -85,7 +86,7 @@ $(() => {
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify({
-          role: $contact.find('input[name=role]:checked').val(),
+          role,
           email: $contact.find('input[type=email]').val(),
           token: captchaToken
         })
@@ -93,6 +94,7 @@ $(() => {
       .done(() => {
         $contact.addClass('success')
         $htmlBody.animate({scrollTop: $contact.offset().top}, 1000)
+        if (ga) ga('send', {hitType: 'event', eventCategory: 'ContactForm', eventAction: 'submitted', eventLabel: role})
       })
     return false
   }
