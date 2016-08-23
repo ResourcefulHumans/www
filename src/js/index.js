@@ -44,10 +44,12 @@ $(() => {
   // Play garage video once it becomes visible
   const $garage = $('#garage')
   vm.garageVideo = $garage.data('vide')
+  vm.heroVideo = $('.hero-video').data('vide')
   $garage.on('visibility.visible', () => {
     const video = vm.garageVideo.getVideoObject()
     if (video) {
       video.play()
+      vm.heroVideo.resize() // Playing the garage video resizes the page height, need to re-adjust the hero video
     }
   })
 
