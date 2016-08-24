@@ -1,6 +1,6 @@
 sudo: false
 branches:
-  except:
+  only:
     - /^v\d+\.\d+\.\d+$/
 language: node_js
 cache:
