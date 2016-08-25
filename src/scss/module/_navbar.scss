@@ -31,6 +31,7 @@ $navbarInnerHeight: 40px;
     // lines between
     border-left: 1px solid rgba(#fff, 0.5);
     padding: 0 0 0 1rem;
+
     &:first-child {
       border-left: 0;
     }
@@ -38,8 +39,14 @@ $navbarInnerHeight: 40px;
   .nav-item + .btn {
     margin-left: 1rem;
   }
+  .nav-link {
+    border-bottom: 1px dotted $gray-lightest;
+    padding: 0;
+    color: $gray-lightest;
+  }
   .nav-link:hover {
-    color: $brand-primary;
+    color: $brand-success;
+    border-color: $brand-success;
   }
   .navbar-toggler.btn-link {
     @include transition(all .2s ease-in-out);
@@ -62,6 +69,16 @@ body.scrolling {
         border-left: 0;
       }
     }
+    .nav-link {
+      border-bottom: 1px dotted rgba(invert($body-color), 0.85);
+      padding: 0;
+      color: rgba(invert($body-color), 0.85);
+    }
+    .nav-link:hover {
+      color: $brand-success;
+      border-color: $brand-success;
+    }
+
     .nav-link:hover {
       color: $brand-primary;
     }
