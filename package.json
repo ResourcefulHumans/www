@@ -6,8 +6,8 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-server": "./node_modules/.bin/static ./build",
-    "lint": "./node_modules/.bin/standard"
+    "dev-server": "static ./build",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
