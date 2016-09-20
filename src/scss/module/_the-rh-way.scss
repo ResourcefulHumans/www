@@ -35,15 +35,7 @@
   p {
     text-transform: uppercase;
     margin: 0;
-    /*
-    font-size: 115%;
-    line-height: 1.75rem;
-    @include media-breakpoint-up(lg) {
-      font-size: 125%;
-      line-height: 2.25rem;
-    }
-    */
-    @include section-text(0.85);
+    @include section-text(0.52);
   }
   .logo {
     .visual {

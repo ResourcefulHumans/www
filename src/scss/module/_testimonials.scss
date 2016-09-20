@@ -28,7 +28,7 @@
       position: relative;
       clear: both;
       line-height: 105%;
-      @include section-text();
+      @include section-text(0.5);
       @include media-breakpoint-up(md) {
         padding-left: $grid-gutter-width * 1.5;
         width: 60%;
@@ -48,7 +48,7 @@
         }
       }
       &.long {
-        @include section-text(0.75);
+        @include section-text(0.4);
         font-size: 100%;
       }
     }

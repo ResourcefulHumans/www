@@ -26,7 +26,7 @@
     }
   }
   footer {
-    @include section-text();
+    @include section-text(0.65);
     @include spacing();
   }
 }

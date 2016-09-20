@@ -27,13 +27,7 @@
     }
   }
   h3 {
-    font-size: 200%;
-    @include media-breakpoint-up(md) {
-      font-size: 300%;
-    }
-    @include media-breakpoint-up(lg) {
-      font-size: 400%;
-    }
+    @include section-headline();
   }
   p {
     @include media-breakpoint-up(lg) {

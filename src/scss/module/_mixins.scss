@@ -40,18 +40,14 @@
 }
 
 @mixin section-text($scale:1) {
-  font-size: 115% * $scale;
-  line-height: 1.75rem * $scale;
+  font-size: 175% * $scale;
+  line-height: 2rem * $scale;
   @include media-breakpoint-up(md) {
-    font-size: 150% * $scale;
-    line-height: 2rem * $scale;
+    font-size: 266% * $scale;
+    line-height: 3.5rem * $scale;
   }
   @include media-breakpoint-up(lg) {
-    font-size: 175% * $scale;
-    line-height: 2.5rem * $scale;
-  }
-  @include media-breakpoint-up(xl) {
-    font-size: 200% * $scale;
-    line-height: 3rem * $scale;
+    font-size: 355% * $scale;
+    line-height: 5rem * $scale;
   }
 }
