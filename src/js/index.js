@@ -11,6 +11,7 @@ const VerticalTextSlider = require('./module/vertical-text-slider')
 const TestimonialSlider = require('./module/testimonial-slider')
 const Navigation = require('./module/navigation')
 const Scroll = require('./module/scroll')
+const TrackLinkClicks = require('./module/track-link-clicks')
 
 $(() => {
   const $window = $(window)
@@ -22,6 +23,7 @@ $(() => {
   vm.heroSlider = new VerticalTextSlider($, $window)
   vm.testimonialSlider = new TestimonialSlider($, $window, $('#testimonials').find('article'))
   vm.navigation = new Navigation($, $htmlBody, window, document)
+  if (typeof ga !== 'undefined') vm.trackLinkClicks = new TrackLinkClicks($, ga)
 
   const positionRHWayLogo = () => {
     const theRHWay = $('.hero-video *[role=heading] h1 span')
@@ -94,7 +96,7 @@ $(() => {
       .done(() => {
         $contact.addClass('success')
         $htmlBody.animate({scrollTop: $contact.offset().top}, 1000)
-        if (ga) ga('send', {hitType: 'event', eventCategory: 'ContactForm', eventAction: 'submitted', eventLabel: role})
+        if (typeof ga !== 'undefined') ga('send', {hitType: 'event', eventCategory: 'ContactForm', eventAction: 'submitted', eventLabel: role})
       })
     return false
   }
