@@ -60,7 +60,7 @@ $(() => {
     grecaptcha.render('recaptcha', {
       'sitekey': $('script[src^="https://www.google.com/recaptcha/api.js"]').data('sitekey'),
       'callback': captchaFilled,
-      'expired-callback	': captchaExpired
+      'expired-callback': captchaExpired
     })
   }
   const captchaFilled = (token) => {
