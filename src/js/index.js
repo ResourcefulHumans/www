@@ -109,6 +109,6 @@ $(() => {
     const $el = $(el)
     $el.on('playing', resizeHeroVideo)
     $el.on('visibility.visible', resizeHeroVideo)
-    vm.videos.push(new PlayableVideo($, el))
+    vm.videos.push(new PlayableVideo($, el, ga))
   })
 })

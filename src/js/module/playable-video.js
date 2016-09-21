@@ -1,9 +1,10 @@
 'use strict'
 
-function PlayableVideo ($, el) {
+function PlayableVideo ($, el, ga) {
   const self = this
   self.$ = $
   self.el = $(el)
+  self.ga = ga
   self.video = self.el.data('vide').getVideoObject()
   self.control = self.el.find('.control')
   self.control.on('click', ev => {
@@ -29,6 +30,7 @@ PlayableVideo.prototype.play = function () {
   self.overlay.hide()
   self.video.play()
   self.el.trigger('playing')
+  if (typeof self.ga !== 'undefined') self.ga('send', {hitType: 'event', eventCategory: 'Video', eventAction: 'played', eventLabel: self.el.attr('id')})
 }
 
 PlayableVideo.prototype.stop = function () {
@@ -39,6 +41,7 @@ PlayableVideo.prototype.stop = function () {
   self.overlay.show()
   self.video.pause()
   self.el.trigger('stopped')
+  if (typeof self.ga !== 'undefined') self.ga('send', {hitType: 'event', eventCategory: 'Video', eventAction: 'stopped', eventLabel: self.el.attr('id')})
 }
 
 PlayableVideo.prototype.togglePlay = function () {
