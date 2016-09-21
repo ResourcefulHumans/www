@@ -1,0 +1,61 @@
+.playable-video {
+  min-height: 200px;
+  height: auto;
+  @include media-breakpoint-up(sm) {
+    height: 100%;
+  }
+  .play-overlay {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .control {
+      cursor: pointer;
+      &.ion, &.fa {
+        font-size: 200%;
+        @include media-breakpoint-up(md) {
+          font-size: 300%;
+        }
+        @include media-breakpoint-up(lg) {
+          font-size: 400%;
+        }
+        color: rgba(255, 255, 255, 0.5);
+        &:hover {
+          color: rgba(255, 255, 255, 0.75);
+        }
+      }
+    }
+    a {
+      margin-left: 1rem;
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+      }
+    }
+    .share {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Make button classes for social media buttons
+@mixin make-social-media-button($network, $color) {
+  .btn-#{$network} {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: none;
+    color: rgba(#fff, 0.85);
+    background-color: $color;
+    &:hover {
+      color: #fff;
+      background-color: darken($color, 10%)
+    }
+  }
+}
+
+$networks: (facebook: #3b5998, twitter: #55acee, linkedin: #0077b5, xing: #1a7576, youtube: #cc181e);
+@each $network, $color in $networks {
+  @include make-social-media-button($network, $color)
+}

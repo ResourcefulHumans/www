@@ -1,0 +1,7 @@
+#certification {
+  h2 {
+    @include section-headline();
+    @include spacing();
+    text-align: left;
+  }
+}

@@ -12,6 +12,7 @@ const TestimonialSlider = require('./module/testimonial-slider')
 const Navigation = require('./module/navigation')
 const Scroll = require('./module/scroll')
 const TrackLinkClicks = require('./module/track-link-clicks')
+const PlayableVideo = require('./module/playable-video')
 
 $(() => {
   const $window = $(window)
@@ -47,13 +48,14 @@ $(() => {
   const $garage = $('#garage')
   vm.garageVideo = $garage.data('vide')
   vm.heroVideo = $('.hero-video').data('vide')
-  $garage.on('visibility.visible', () => {
+  const resizeHeroVideo = () => {
     const video = vm.garageVideo.getVideoObject()
     if (video) {
       video.play()
       vm.heroVideo.resize() // Playing the garage video resizes the page height, need to re-adjust the hero video
     }
-  })
+  }
+  $garage.on('visibility.visible', resizeHeroVideo)
 
   // Contact form
   let isCaptchaFilled = false
@@ -100,4 +102,13 @@ $(() => {
       })
     return false
   }
+
+  // Playable videos
+  vm.videos = []
+  $('.playable-video').each((idx, el) => {
+    const $el = $(el)
+    $el.on('playing', resizeHeroVideo)
+    $el.on('visibility.visible', resizeHeroVideo)
+    vm.videos.push(new PlayableVideo($, el))
+  })
 })
