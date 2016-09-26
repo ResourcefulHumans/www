@@ -1,10 +1,13 @@
 'use strict'
 
+/* global document */
+
 function PlayableVideo ($, el, ga) {
   const self = this
   self.$ = $
+  self.$body = $(document.body)
   self.el = $(el)
-  self.ga = ga
+  self.ga = ga || false
   self.video = self.el.data('vide').getVideoObject()
   self.control = self.el.find('.control')
   self.control.on('click', ev => {
@@ -27,10 +30,11 @@ PlayableVideo.prototype.play = function () {
   if (!self.video) return
   if (self.playing) return
   self.playing = true
+  self.$body.addClass('video-playing')
   self.overlay.hide()
   self.video.play()
   self.el.trigger('playing')
-  if (typeof self.ga !== 'undefined') self.ga('send', {hitType: 'event', eventCategory: 'Video', eventAction: 'played', eventLabel: self.el.attr('id')})
+  if (self.ga) self.ga('send', {hitType: 'event', eventCategory: 'Video', eventAction: 'played', eventLabel: self.el.attr('id')})
 }
 
 PlayableVideo.prototype.stop = function () {
@@ -38,10 +42,11 @@ PlayableVideo.prototype.stop = function () {
   if (!self.video) return
   if (!self.playing) return
   self.playing = false
+  self.$body.removeClass('video-playing')
   self.overlay.show()
   self.video.pause()
   self.el.trigger('stopped')
-  if (typeof self.ga !== 'undefined') self.ga('send', {hitType: 'event', eventCategory: 'Video', eventAction: 'stopped', eventLabel: self.el.attr('id')})
+  if (self.ga) self.ga('send', {hitType: 'event', eventCategory: 'Video', eventAction: 'stopped', eventLabel: self.el.attr('id')})
 }
 
 PlayableVideo.prototype.togglePlay = function () {

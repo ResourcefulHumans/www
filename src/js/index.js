@@ -50,7 +50,7 @@ $(() => {
   vm.heroVideo = $('.hero-video').data('vide')
   const resizeHeroVideo = () => {
     const video = vm.garageVideo.getVideoObject()
-    if (video) {
+    if (video && !$body.hasClass('video-playing')) {
       video.play()
       vm.heroVideo.resize() // Playing the garage video resizes the page height, need to re-adjust the hero video
     }
@@ -109,6 +109,6 @@ $(() => {
     const $el = $(el)
     $el.on('playing', resizeHeroVideo)
     $el.on('visibility.visible', resizeHeroVideo)
-    vm.videos.push(new PlayableVideo($, el, ga))
+    vm.videos.push(new PlayableVideo($, el, typeof ga !== 'undefined' ? ga : undefined))
   })
 })
