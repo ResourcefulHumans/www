@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help build development
+.PHONY: help build development static
 
 # Cancel implicit rules
 .SUFFIXES:
@@ -32,7 +32,7 @@ debug: ## Print variables
 development: ## Build for development environment
 	ENVIRONMENT=development make build
 
-build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html build/favicon.ico build/robots.txt ## Build for production environment
+build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html build/favicon.ico build/robots.txt static ## Build for production environment
 
 ACCESS_KEY := $(shell node console config aws:access_key_id)
 SECRET_KEY := $(shell node console config aws:secret_access_key)
@@ -122,3 +122,7 @@ build/favicon.ico: src/favicon/*.*
 
 build/robots.txt: src/robots.txt
 	cp -u src/robots.txt build/
+
+# TODO: build list, to only update new files
+static:
+	cp -u -r static/* build/
