@@ -11,7 +11,7 @@
   }
   article {
     position: relative;
-    height: 450px;
+    height: 500px;
     overflow: hidden;
   }
   section {
@@ -24,10 +24,10 @@
     border-radius: 3px;
     blockquote {
       width: 100%;
+      line-height: 95%;
       padding: ($grid-gutter-width / 2) 0 $grid-gutter-width $grid-gutter-width;
       position: relative;
       clear: both;
-      line-height: 105%;
       @include section-text(0.5);
       @include media-breakpoint-up(md) {
         padding-left: $grid-gutter-width * 1.5;
@@ -54,7 +54,7 @@
     }
 
     *[role=note] {
-      line-height: 100%;
+      line-height: 90%;
       @include media-breakpoint-up(sm) {
         width: 50%;
       }
@@ -215,7 +215,10 @@
 
   nav {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    @include media-breakpoint-up(md) {
+      margin-top: 2rem;
+    }
     *[role=checkbox] {
       cursor: pointer;
       color: rgba($body-color, 0.25);
