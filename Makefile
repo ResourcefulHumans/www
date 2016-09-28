@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help build development static
+.PHONY: help build development
 
 # Cancel implicit rules
 .SUFFIXES:
@@ -19,6 +19,10 @@ cssminified := $(foreach f,$(cssbasenames),build/css/$(f).min.css)
 
 .SECONDARY: $(jsbrowserified) $(csssassed)
 
+# Build variables for assets
+assetsrcfiles := $(shell find assets -type f)
+assettargets := $(subst assets/,build/,$(assetsrcfiles))
+
 debug: ## Print variables
 	@echo "jssrcfiles=$(jssrcfiles)"
 	@echo "jssrcbasenames=$(jssrcbasenames)"
@@ -28,11 +32,13 @@ debug: ## Print variables
 	@echo "cssbasenames=$(cssbasenames)"
 	@echo "csssassed=$(csssassed)"
 	@echo "cssminified=$(cssminified)"
+	@echo "assetsrcfiles=$(assetsrcfiles)"
+	@echo "assettargets=$(assettargets)"
 
 development: ## Build for development environment
 	ENVIRONMENT=development make build
 
-build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html build/favicon.ico build/robots.txt static ## Build for production environment
+build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html $(assettargets) ## Build for production environment
 
 ACCESS_KEY := $(shell node console config aws:access_key_id)
 SECRET_KEY := $(shell node console config aws:secret_access_key)
@@ -72,11 +78,8 @@ help: ## (default), display the list of make commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 # JavaScript
-
-build/js:
-	mkdir -p build/js
-
-build/js/%.js: src/js/%.js src/js/*.js src/js/**/*.js build/js
+build/js/%.js: src/js/%.js src/js/*.js src/js/**/*.js
+	@mkdir -p $(dir $@)
 	./node_modules/.bin/browserify $< -o $@
 
 build/js/%.min.js: build/js/%.js
@@ -88,15 +91,13 @@ endif
 
 # CSS
 
-build/css:
-	mkdir -p build/css
-
 build/fonts: node_modules/font-awesome/fonts/*.* node_modules/ionicons/dist/fonts/*.*
 	mkdir -p build/fonts
 	cp -u node_modules/font-awesome/fonts/*.* build/fonts/
 	cp -u node_modules/ionicons/dist/fonts/*.* build/fonts/
 
-build/css/%.css: src/scss/%.scss src/scss/*.scss src/scss/**/*.scss build/fonts build/css
+build/css/%.css: src/scss/%.scss src/scss/*.scss src/scss/**/*.scss build/fonts
+	@mkdir -p $(dir $@)
 	./node_modules/.bin/node-sass $< $@
 
 build/css/%.min.css: build/css/%.css
@@ -108,21 +109,10 @@ endif
 
 # HTML
 
-build/*.html: src/*.html src/includes/*.html build/img
+build/*.html: src/*.html src/includes/*.html
 	./node_modules/.bin/rheactor-build-views build -m ./config ./src ./build
 
 # Assets
-
-build/img: src/img/*.*
-	mkdir -p build/img
-	cp -u -r src/img/* build/img/
-
-build/favicon.ico: src/favicon/*.*
-	cp -u src/favicon/* build/
-
-build/robots.txt: src/robots.txt
-	cp -u src/robots.txt build/
-
-# TODO: build list, to only update new files
-static:
-	cp -u -r static/* build/
+build/%: assets/%
+	@mkdir -p $(dir $@)
+	cp $< $@
