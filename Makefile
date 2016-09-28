@@ -110,7 +110,7 @@ endif
 # HTML
 
 build/*.html: src/*.html src/includes/*.html
-	./node_modules/.bin/rheactor-build-views build -m ./config ./src ./build
+	./node_modules/.bin/rheactor-build-views build -s assets/img -m ./config ./src ./build
 
 # Assets
 build/%: assets/%
