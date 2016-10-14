@@ -1,25 +1,25 @@
 sudo: false
 branches:
   only:
-    - /^v\d+\.\d+\.\d+$/
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
 language: node_js
 cache:
   directories:
-    - node_modules
+  - node_modules
 notifications:
   email: false
   slack:
     rooms:
-      - rhway:VfKOy61tSbzZwZXAe8KnPnNj#z_tech_github
+      secure: QAYTd9rDT12gNX5Q0GXCQLcHadgxsj9tfs36qLGE1juj0CxRZVZLDKs/QB3Ri8LnhyGz/SlQU62f9kdjbyg8dIps708ezzQV06KQs3qHintEFMGr+Fm/twcYTgB3FXaYHvxZQ+3dNLt+FDKwFCC7tjXK9Dl5xYWlk8EgNtgr/BKLDe1QratjKqZtKiXEPjByLH15stslFDLP65mP2QDPYvIj5+d3tY0tLCY0y0dCuRUrwB+EvpklPlbVDqgnXHbdIlBSbIEodMT7V+zqvhnlyxzLBGNEHnoGLxDcDah4jByhf4MIE1MRrZQdptgLFHpeVtl1xoyCtqip/1fk9ZSTEoMEsINa7TeTJdgP1O0q+2HRadspEw/5z62PpjnQjAcpStD/aMTeKogt9XTRq8BVfl5dkAwJkOH6ItGSILLmmFxfkhTfaoluUrIVGGFJ7Sb3wfgYJkE8L/bnKDZfONyaAN7aisXohenrmsGvmFJhXpzhA+pjdZ/IwN1ohsVGCo6FOZcYj1rR/Sdw+oCgVNUdlK+pZev3Wd5DOCXW5zzIEmNE91MRTNp3r80xvejq5jU10Z4CQT7Ah7kug3U5+x4c8PwCPihPjUjfBQjOUe9Yl7ASMkalAJsvEl68i5CDdqEuutUEBmEMvQpOvrJcGFWBnds8xJBMtkGtqKVJc15Blls=
 node_js:
-  - 'stable'
+- stable
 install:
-  - pip install --user s3cmd
-  - npm install
+- pip install --user s3cmd
+- npm install
 addons:
   apt:
     packages:
-      - python-pip
+    - python-pip
 script:
-  - npm run lint
-  - make deploy
+- npm run lint
+- make deploy
