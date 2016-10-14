@@ -110,7 +110,11 @@ endif
 # HTML
 
 build/*.html: src/*.html src/includes/*.html
+ifeq "${ENVIRONMENT}" "development"
+	./node_modules/.bin/rheactor-build-views build -s assets/img ./config ./src ./build
+else
 	./node_modules/.bin/rheactor-build-views build -s assets/img -m ./config ./src ./build
+endif
 
 # Assets
 build/%: assets/%
