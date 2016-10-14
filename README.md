@@ -1,6 +1,6 @@
 # www
 
-[![Build Status](https://travis-ci.com/ResourcefulHumans/www.svg?token=4soJpdPmroe6syDk1oD3&branch=2016)](https://travis-ci.com/ResourcefulHumans/www)
+[![Build Status](https://travis-ci.org/ResourcefulHumans/www.svg)](https://travis-ci.org/ResourcefulHumans/www)
 [![monitored by greenkeeper.io](https://img.shields.io/badge/greenkeeper.io-monitored-brightgreen.svg)](http://greenkeeper.io/) 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 

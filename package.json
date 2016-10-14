@@ -20,9 +20,7 @@
   ],
   "author": "Resourceful Humans <info@resourceful-humans.com>",
   "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/ResourcefulHumans/www/issues"
-  },
+  "private": true,
   "homepage": "https://github.com/ResourcefulHumans/www#readme",
   "dependencies": {
     "aliasify": "^2.0.0",
