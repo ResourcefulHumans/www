@@ -85,5 +85,9 @@
         "jquery"
       ]
     }
-  }
+  },
+  "files": [
+    "assets",
+    "src"
+  ]
 }
