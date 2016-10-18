@@ -1,7 +1,4 @@
 sudo: false
-branches:
-  only:
-  - "/^v\\d+\\.\\d+\\.\\d+$/"
 language: node_js
 cache:
   directories:
@@ -25,4 +22,11 @@ addons:
     - python-pip
 script:
 - npm run lint
-- make deploy
+- |
+  if [ -n "${TRAVIS_TAG}" ]; then
+    make deploy
+  fi
+- |
+  if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
+    make preview
+  fi
