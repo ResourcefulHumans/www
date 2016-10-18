@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="<%= data.config.description %>">
+  <meta name="version" content="<%= data.version %>-<%= data.deployVersion %>">
+  <title><%= data.config.appName %></title>
+  <base href="/">
+  <link rel="stylesheet" href="/css/netwoRHk.min.css?v=<%= data.version %>-<%= data.deployVersion %>">
+  <link rel="canonical" href="<%= data['webHost'] %>/" />
+  <%= includes.favicon %>
+  <%= includes.fonts %>
+</head>
+<body>
+<%= includes['netwoRHk-navigation'] %>
+<%= includes['netwoRHk-hero'] %>
+<%= includes['netwoRHk-captain'] %>
+<%= includes['netwoRHk-tutorial'] %>
+<%= includes['netwoRHk-features'] %>
+<%= includes.footer %>
+<%= includes.trackjs %>
+<%= includes['google-analytics'] %>
+<%= includes['browser-update'] %>
+<script type="text/javascript" src="/js/netwoRHk.min.js?v=<%= data.version %>-<%= data.deployVersion %>"></script>
+</body>
+</html>

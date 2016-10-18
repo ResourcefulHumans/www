@@ -1,8 +1,7 @@
 {
-  "name": "resourceful-humans.com",
-  "appName": "Resourceful Humans: turning organisations into entrepreneurial networks",
+  "name": "www",
   "version": "2.1.26",
-  "description": "The Way of Resourceful Humans creates a network of autonomous teams to get any meaningful mission done.",
+  "description": "Source code for our public web sites",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

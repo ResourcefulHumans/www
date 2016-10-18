@@ -1,0 +1,41 @@
+#tutorial {
+  @include spacing();
+  @include clearfix();
+  header {
+    text-transform: uppercase;
+    h2 {
+      @include section-headline();
+    }
+  }
+  p {
+    @include section-text(0.65);
+    @include spacing();
+  }
+  .video-in-ipad {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @include clearfix();
+    svg {
+      display: none;
+      @include media-breakpoint-up(md) {
+        display: block;
+        width: 90%;
+        height: 90% * 0.55;
+        margin-left: 5%;
+      }
+    }
+    .playable-video {
+      width: 100%;
+      height: 58%;
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        top: 7%;
+        left: 14%;
+        width: 71%;
+        height: 36%;
+        z-index: 0;
+      }
+    }
+  }
+}
