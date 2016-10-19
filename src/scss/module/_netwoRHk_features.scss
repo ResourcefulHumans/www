@@ -1,13 +1,7 @@
+@import "shared/features";
+
 #features {
-  @include spacing();
-  header {
-    text-transform: uppercase;
-    h2 {
-      @include section-headline();
-    }
-  }
-  p {
-    @include section-text(0.65);
-    @include spacing();
+  .origin {
+    @include spacing-top();
   }
 }

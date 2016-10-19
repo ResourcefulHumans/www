@@ -119,7 +119,7 @@ build/fonts: node_modules/font-awesome/fonts/*.* node_modules/ionicons/dist/font
 	cp -u node_modules/font-awesome/fonts/*.* build/fonts/
 	cp -u node_modules/ionicons/dist/fonts/*.* build/fonts/
 
-build/css/%.css: src/scss/%.scss src/scss/*.scss src/scss/**/*.scss build/fonts
+build/css/%.css: src/scss/%.scss src/scss/*.scss src/scss/**/*.scss src/scss/**/**/*.scss build/fonts
 	@mkdir -p $(dir $@)
 	./node_modules/.bin/node-sass $< $@
 
