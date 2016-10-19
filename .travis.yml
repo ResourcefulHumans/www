@@ -24,9 +24,11 @@ script:
 - npm run lint
 - |
   if [ -n "${TRAVIS_TAG}" ]; then
-    make deploy
+    APP=RH AWS__WEBSITE_BUCKET=2016.resourceful-humans.com make deploy
+    APP=netwoRHk AWS__WEBSITE_BUCKET=product.netwoRHk.net make deploy
   fi
 - |
   if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
-    make preview
+    APP=RH AWS__WEBSITE_BUCKET=2016.resourceful-humans.com make preview
+    APP=netwoRHk AWS__WEBSITE_BUCKET=product.netwoRHk.net make preview
   fi

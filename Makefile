@@ -1,18 +1,19 @@
 .DEFAULT_GOAL := help
-.PHONY: help build development s3cfg
+.PHONY: help build development merge_assets
+APP ?= RH
 
 # Cancel implicit rules
 .SUFFIXES:
 %: %,v
 
 # Build variables for JS artefacts
-jssrcfiles := $(wildcard src/js/*.js)
+jssrcfiles := src/js/content-page.js src/js/$(APP).js
 jssrcbasenames := $(notdir $(basename $(jssrcfiles)))
 jsbrowserified := $(foreach f,$(jssrcbasenames),build/js/$(f).js)
 jsminified := $(foreach f,$(jssrcbasenames),build/js/$(f).min.js)
 
 # Build variables for CSS artefacts
-cssrcfiles := $(wildcard src/scss/*.scss)
+cssrcfiles := src/scss/content-page.scss src/scss/$(APP).scss
 cssbasenames := $(notdir $(basename $(cssrcfiles)))
 csssassed := $(foreach f,$(cssbasenames),build/css/$(f).css)
 cssminified := $(foreach f,$(cssbasenames),build/css/$(f).min.css)
@@ -20,8 +21,8 @@ cssminified := $(foreach f,$(cssbasenames),build/css/$(f).min.css)
 .SECONDARY: $(jsbrowserified) $(csssassed)
 
 # Build variables for assets
-assetsrcfiles := $(shell find assets -type f)
-assettargets := $(subst assets/,build/,$(assetsrcfiles))
+assetsrcfiles := $(shell find assets/shared/ -type f)
+assetsrcfiles += $(shell find assets/$(APP)/ -type f)
 
 debug: ## Print variables
 	@echo "jssrcfiles=$(jssrcfiles)"
@@ -33,12 +34,11 @@ debug: ## Print variables
 	@echo "csssassed=$(csssassed)"
 	@echo "cssminified=$(cssminified)"
 	@echo "assetsrcfiles=$(assetsrcfiles)"
-	@echo "assettargets=$(assettargets)"
 
 development: ## Build for development environment
 	ENVIRONMENT=development make build
 
-build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html $(assettargets) ## Build for production environment
+build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) build/*.html merge_assets ## Build for production environment
 
 ACCESS_KEY := $(shell node console config aws:access_key_id)
 SECRET_KEY := $(shell node console config aws:secret_access_key)
@@ -134,12 +134,13 @@ endif
 
 build/*.html: src/*.html src/includes/*.html
 ifeq ($(ENVIRONMENT),development)
-	./node_modules/.bin/rheactor-build-views build -s assets/img ./config ./src ./build
+	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg ./config.web ./src ./build
 else
-	./node_modules/.bin/rheactor-build-views build -s assets/img -m ./config ./src ./build
+	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg -m ./config.web ./src ./build
 endif
+	cp build/index.$(APP).html build/index.html
 
 # Assets
-build/%: assets/%
-	@mkdir -p $(dir $@)
-	cp $< $@
+merge_assets: $(assetsrcfiles)
+	cp -r assets/shared/* build/
+	cp -r assets/$(APP)/* build/

@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="<%= data.config.description %>">
-  <meta name="version" content="<%= data.version %>-<%= data.deployVersion %>">
-  <title>404 | <%= data.config.appName %></title>
+  <meta name="description" content="<%= data.description %>">
+  <meta name="version" content="<%= data.version %>-<%= data.buildTime %>">
+  <title>404 | <%= data.appName %></title>
   <base href="/">
   <link rel="canonical" href="<%= data['webHost'] %>/404.html" />
-  <link rel="stylesheet" href="/css/content-page.min.css?v=<%= data.version %>-<%= data.deployVersion %>">
+  <link rel="stylesheet" href="/css/content-page.min.css?v=<%= data.version %>-<%= data.buildTime %>">
   <%= includes.favicon %>
   <%= includes.fonts %>
 </head>
@@ -29,6 +29,6 @@
 <%= includes.trackjs %>
 <%= includes['google-analytics'] %>
 <%= includes['browser-update'] %>
-<script type="text/javascript" src="/js/content-page.min.js?v=<%= data.version %>-<%= data.deployVersion %>"></script>
+<script type="text/javascript" src="/js/content-page.min.js?v=<%= data.version %>-<%= data.buildTime %>"></script>
 </body>
 </html>
