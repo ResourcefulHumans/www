@@ -2958,9 +2958,9 @@ restore-cursor@^1.0.1:
     exit-hook "^1.0.0"
     onetime "^1.0.0"
 
-rheactor-build-views@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/rheactor-build-views/-/rheactor-build-views-1.6.0.tgz#1bd5322e05e4ff43aea6260ae968c1e4c97f1fa5"
+rheactor-build-views@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rheactor-build-views/-/rheactor-build-views-2.0.0.tgz#fb788e0c5a1d61179128262f8b73bbfab2cc0546"
   dependencies:
     bluebird "^3.4.1"
     colors "^1.1.2"
