@@ -12,3 +12,19 @@
 @import "module/playable-video";
 @import "module/netwoRHk_tutorial";
 @import "module/netwoRHk_features";
+
+$netwoRHk-gold: #F2B646;
+$netwoRHk-silver: #BABABA;
+$netwoRHk-bronze: #E07D53;
+
+.color-gold {
+  color: $netwoRHk-gold;
+}
+
+.color-silver {
+  color: $netwoRHk-silver;
+}
+
+.color-bronze {
+  color: $netwoRHk-bronze;
+}

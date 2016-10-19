@@ -1,7 +1,11 @@
 @import "shared/features";
 
 #the-rh-way {
+  h2 {
+    @include section-headline();
+  }
   p {
+    @include section-text(0.52);
     text-transform: uppercase;
   }
 }

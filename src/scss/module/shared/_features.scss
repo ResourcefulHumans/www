@@ -14,7 +14,6 @@
 
 .features {
   h2 {
-    @include section-headline();
     @include spacing();
     .good {
       color: $good-color;
@@ -34,7 +33,9 @@
   }
   p {
     margin: 0;
-    @include section-text(0.52);
+  }
+  p + p {
+    margin-top: 1rem;
   }
   .logo {
     .visual {
@@ -104,6 +105,20 @@
       left: 14.5%;
     }
   }
+  .device-ipad {
+    position: relative;
+    svg {
+      width: 100%;
+    }
+    img {
+      position: absolute;
+      border: 1px solid #7e89a3;
+      height: auto;
+      top: 13%;
+      width: 80%;
+      left: 9.5%;
+    }
+  }
   .full-spacer {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -128,10 +143,15 @@
       }
     }
     .row {
-      &.half-spacer, &.full-spacer {
+      &.half-spacer, &.full-spacer, &.no-spacer {
         @include media-breakpoint-up(lg) {
           transform: translateX(-200%);
           position: relative;
+          @include animateOnVisible();
+        }
+      }
+      &.half-spacer, &.full-spacer {
+        @include media-breakpoint-up(lg) {
           &:after {
             width: 27px;
             height: 27px;
@@ -143,7 +163,6 @@
             top: 50%;
             transform: translateY(-27px);
           }
-          @include animateOnVisible();
         }
       }
     }
@@ -158,8 +177,10 @@
       }
       .row {
         @include media-breakpoint-up(lg) {
-          &.half-spacer, &.full-spacer {
+          &.half-spacer, &.full-spacer, &.no-spacer {
             transform: translateX(200%);
+          }
+          &.half-spacer, &.full-spacer {
             &:after {
               left: -25px;
               width: 25px;

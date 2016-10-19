@@ -4,4 +4,34 @@
   .origin {
     @include spacing-top();
   }
+  h3 {
+    text-transform: uppercase;
+  }
+  h2 {
+    @include section-headline(1);
+  }
+  p {
+    @include section-text(0.3);
+  }
+}
+
+#health-engine {
+  svg {
+    width: 25%;
+    float: right;
+    margin-right: 40%;
+  }
+}
+
+#networhk-integrations {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  div {
+    padding: 1rem;
+    svg {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 }

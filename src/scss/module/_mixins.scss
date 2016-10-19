@@ -33,10 +33,10 @@
   @include spacing-bottom();
 }
 
-@mixin section-headline() {
+@mixin section-headline($scale:1.125) {
   text-transform: uppercase;
   text-align: center;
-  @include section-text(1.125);
+  @include section-text($scale);
 }
 
 @mixin section-text($scale:1) {
