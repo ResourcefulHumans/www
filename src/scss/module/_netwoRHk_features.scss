@@ -13,6 +13,9 @@
   p {
     @include section-text(0.3);
   }
+  .bad-to-good {
+    margin-top: 2rem;
+  }
 }
 
 #health-engine {
