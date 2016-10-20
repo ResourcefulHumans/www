@@ -1,0 +1,42 @@
+#ttsa {
+  // background-color: $bad-color;
+  background-color: #e77f1e;
+  min-height: 400px;
+  position: relative;
+  @include media-breakpoint-up(sm) {
+    height: 50%;
+  }
+  &:before {
+    content: " ";
+    //background-color: $good-color;
+    background-color: #6bc73e;
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    right: 0;
+    top: 0;
+  }
+  *[data-vide-bg] {
+    position: absolute;
+    z-index: 1;
+    height: auto;
+    min-height: 400px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    @include media-breakpoint-up(sm) {
+      height: 100% * 720/1280;
+    }
+    margin-left: 1%;
+  }
+  button {
+    position: relative;
+    z-index: 2;
+    margin-top: 15%;
+  }
+  .container, .row, .col-xs-12 {
+    height: 100%;
+  }
+}
+
