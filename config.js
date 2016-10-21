@@ -33,7 +33,6 @@ nconf.defaults({
   'host': host,
   'api_host': 'http://' + host + ':' + port,
   'web_host': 'http://' + host + ':' + port,
-  'base_href': '/',
   'aws': {
     'region': 'eu-central-1'
   }
