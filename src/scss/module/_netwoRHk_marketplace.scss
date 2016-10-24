@@ -1,4 +1,9 @@
 #marketplace {
+  h3 {
+    @include section-headline(0.7);
+    text-transform: uppercase;
+    text-align: left;
+  }
   .device-ipad {
     margin-top: 6rem;
   }

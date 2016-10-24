@@ -5,34 +5,33 @@
     @include spacing-top();
   }
   h3 {
+    @include section-headline(0.7);
     text-transform: uppercase;
-  }
-  h2 {
-    @include section-headline(1);
-  }
-  p {
-    @include section-text(0.3);
+    text-align: left;
   }
   .bad-to-good {
     margin-top: 2rem;
   }
 }
 
-#health-engine {
-  svg {
-    width: 25%;
-    float: right;
-    margin-right: 40%;
+.features {
+  .health-engine {
+    svg {
+      @include media-breakpoint-up(sm) {
+        width: 35%;
+        float: right;
+        margin-right: 25%;
+      }
+    }
   }
 }
 
-#networhk-integrations {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+.networhk-integrations {
   svg {
-    padding: 1rem;
     width: 100%;
     max-width: 100%;
+    @include media-breakpoint-up(sm) {
+      padding: 1rem;
+    }
   }
 }

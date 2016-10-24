@@ -14,7 +14,9 @@
   }
   .playable-video {
     width: 100%;
-    height: 58%;
+    @include media-breakpoint-up(sm) {
+      height: 58%;
+    }
     @include media-breakpoint-up(md) {
       position: absolute;
       top: 7%;

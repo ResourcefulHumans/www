@@ -41,7 +41,7 @@
 
 @mixin section-text($scale:1) {
   font-size: 175% * $scale;
-  line-height: 2rem * $scale;
+  line-height: 2.5rem * $scale;
   @include media-breakpoint-up(md) {
     font-size: 266% * $scale;
     line-height: 3.5rem * $scale;

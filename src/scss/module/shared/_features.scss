@@ -20,6 +20,7 @@
 .features {
   h2 {
     @include spacing();
+    @include section-headline(1);
     .good {
       color: $good-color;
       white-space: nowrap;
@@ -38,6 +39,7 @@
   }
   p {
     margin: 0;
+    @include section-text(0.52);
   }
   p + p {
     margin-top: 1rem;

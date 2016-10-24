@@ -17,13 +17,14 @@
           </div>
         </div>
       </header>
-      <div class="row">
-        <div class="lane col-xs-12 col-lg-6">
+      <!-- desktop layout -->
+      <div class="row hidden-sm-down">
+        <div class="lane col-lg-6">
           <div class="row flex flex-items-xs-middle half-spacer check-visibility">
-            <div class="device-iphone col-xs-3 col-lg-4">
+            <div class="device-iphone col-lg-4">
               <object class="illustration"><%= svg['iphone-create-contribution'] %></object>
             </div>
-            <div class="col-xs-9 col-sm-8 offset-sm-1 col-lg-7 offset-lg-0 text-lg-right">
+            <div class="col-sm-8 offset-sm-1 col-lg-7 offset-lg-0">
               <h3>Make a Contribution</h3>
               <p>
                 Create sensible goals.
@@ -36,13 +37,13 @@
             </div>
           </div>
           <div class="row flex flex-items-xs-middle full-spacer check-visibility">
-            <div class="device-ipad col-xs-12 col-sm-11">
+            <div class="device-ipad col-sm-11">
               <object class="device"><%= svg['ipad'] %></object>
               <img src="/img/customer-centric-netwoRHk-map.jpg" alt="Screenshot of a netwoRHk with on person surrounded by their contributions" width="1280" height="734">
             </div>
           </div>
           <div class="row flex flex-items-xs-middle no-spacer check-visibility">
-            <div class="col-xs-12 col-sm-11">
+            <div class="col-sm-11">
               <h3>Performance that is all about Teams</h3>
               <p>
                 netwoRHk’s HealthEngine asks every team-member
@@ -52,7 +53,7 @@
                 team’s status is red - encouraging constant
                 alignement.
               </p>
-              <p id="health-engine">
+              <p class="health-engine">
                 Healthy
                 <object class="illustration"><%= svg['health-engine-good'] %></object>
                 <br>
@@ -62,13 +63,13 @@
             </div>
           </div>
           <div class="row flex flex-items-xs-middle full-spacer check-visibility">
-            <div class="device-ipad col-xs-12 col-sm-11">
+            <div class="device-ipad col-sm-11">
               <object class="device"><%= svg['ipad'] %></object>
               <img src="/img/netwoRHk-numerical-targets.jpg" alt="Screenshot of contribution with numerical targets added" width="1280" height="734">
             </div>
           </div>
           <div class="row flex flex-items-xs-middle no-spacer check-visibility">
-            <div class="col-xs-12 col-sm-11">
+            <div class="col-sm-11">
               <h3>Yeah. You can Time-Travel.</h3>
               <p>
                 Marty McFly approves! With time-travel you can build ever better
@@ -85,7 +86,7 @@
             </div>
           </div>
           <div class="row flex flex-items-xs-middle half-spacer check-visibility">
-            <div class="col-xs-12 col-sm-11">
+            <div class="col-sm-11">
               <h3>Simple</h3>
               <p>
                 Top-Down Goals evolve into Customer-centric Peer Commitments
@@ -95,8 +96,8 @@
               </div>
             </div>
           </div>
-          <div class="row flex flex-items-xs-middle full-spacer check-visibility">
-            <div class="col-xs-12 col-sm-11">
+          <div class="row flex flex-items-xs-middle half-spacer check-visibility">
+            <div class="col-sm-11">
               <h3>Realtime</h3>
               <p>
                 Annual Reviews evolve into 360° Degree Realtime Reviews
@@ -107,12 +108,12 @@
             </div>
           </div>
         </div>
-        <div class="lane col-xs-12 col-lg-6">
+        <div class="lane col-lg-6">
           <div class="row flex flex-items-xs-middle full-spacer check-visibility">
-            <div class="device-iphone col-xs-3 col-lg-4 push-lg-8">
+            <div class="device-iphone col-lg-4 push-lg-8">
               <object class="illustration"><%= svg['iphone-5m-hack'] %></object>
             </div>
-            <div class="col-xs-9 col-sm-8 offset-sm-1 offset-lg-0 col-lg-7 pull-lg-3">
+            <div class="col-sm-8 offset-sm-1 offset-lg-0 col-lg-7 pull-lg-3">
               <h3>Create kick-ass teams</h3>
               <p>
                 Become a Leader. When
@@ -124,7 +125,7 @@
             </div>
           </div>
           <div class="row flex flex-items-xs-middle no-spacer check-visibility">
-            <div class="col-xs-12 col-sm-11 offset-sm-1">
+            <div class="col-sm-11 offset-sm-1">
               <h3>A customer-centric Map for Work</h3>
               <p>
                 netwoRHk offer you a stunningly beautiful way to
@@ -144,13 +145,13 @@
             </div>
           </div>
           <div class="row flex flex-items-xs-middle half-spacer check-visibility">
-            <div class="device-ipad col-xs-12 col-sm-11 offset-sm-1">
+            <div class="device-ipad col-sm-11 offset-sm-1">
               <object class="device"><%= svg['ipad'] %></object>
               <img src="/img/netwoRHk-health-engine.jpg" alt="Screenshot of a netwoRHk with on person surrounded by their contributions" width="1280" height="737">
             </div>
           </div>
           <div class="row flex flex-items-xs-middle no-spacer check-visibility">
-            <div class="col-xs-12 col-sm-11 offset-sm-1">
+            <div class="col-sm-11 offset-sm-1">
               <h3>Real bottom-line entrepreneuership</h3>
               <p>
                 netwoRHk allows you to set numerical targets, to
@@ -162,7 +163,7 @@
                 collaboration tools, netwoRHk is your top-layer for
                 100% Entrepreneurship and 0% Bureaucracy
               </p>
-              <div id="networhk-integrations">
+              <div class="networhk-integrations flex-items-xs-middle flex-items-xs-center" style="display: flex">
                 <object class="illustration"><%= svg['slack'] %></object>
                 <object class="illustration"><%= svg['jira'] %></object>
                 <object class="illustration"><%= svg['trello'] %></object>
@@ -170,7 +171,7 @@
             </div>
           </div>
           <div class="row half-spacer check-visibility">
-            <div class="device-ipad col-xs-12 col-sm-11 offset-sm-1">
+            <div class="device-ipad col-sm-11 offset-sm-1">
               <object class="device"><%= svg['ipad-pro'] %></object>
               <div id="timetravel-video" class="playable-video" data-vide-bg="https://s3.eu-central-1.amazonaws.com/rh-web-assets/videos/timetravel-web" data-vide-options="posterType: jpg, autoplay: false, loop: false">
                 <div class="play-overlay">
@@ -180,7 +181,7 @@
             </div>
           </div>
           <div class="row flex flex-items-xs-middle full-spacer check-visibility">
-            <div class="col-xs-12 col-sm-11 offset-md-1">
+            <div class="col-sm-11 offset-md-1">
               <h3>Social</h3>
               <p>
                 Individual Targets evolve into Team Targets
@@ -188,6 +189,209 @@
               <div class="bad-to-good">
                 <object class="illustration"><%= svg['individual-to-team-targets'] %></object>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- mobile layout -->
+      <div class="hidden-sm-up">
+        <div class="row flex m-t-3">
+          <div class="device-iphone col-xs-3">
+            <object class="illustration"><%= svg['iphone-create-contribution'] %></object>
+          </div>
+          <div class="col-xs-9">
+            <h3>Make a Contribution</h3>
+            <p>
+              Create sensible goals.
+              Invite people you love to
+              work with or search for
+              contributors by offering
+              your goal up on the
+              netwoRHk marketplace.
+            </p>
+          </div>
+        </div>
+        <div class="row flex m-t-3">
+          <div class="device-iphone col-xs-3">
+            <object class="illustration"><%= svg['iphone-5m-hack'] %></object>
+          </div>
+          <div class="col-xs-9">
+            <h3>Create kick-ass teams</h3>
+            <p>
+              Become a Leader. When
+              you receive an invitation to
+              contribute, you get to
+              choose. Commit or reject. It
+              is your Talent you invest.
+            </p>
+          </div>
+        </div>
+        <div class="row flex m-t-3">
+          <div class="col-xs-9 offset-xs-3">
+            <h3>A customer-centric Map for Work</h3>
+          </div>
+        </div>
+        <div class="row flex m-t-1">
+          <div class="col-xs-3">
+            <p>
+              <i class="fa fa-circle color-gold" aria-hidden="true"></i> Gold<br>
+              <i class="fa fa-circle color-silver" aria-hidden="true"></i> Silver<br>
+              <i class="fa fa-circle color-bronze" aria-hidden="true"></i> Bronze
+            </p>
+          </div>
+          <div class="col-xs-9">
+            <p>
+              netwoRHk offer you a stunningly beautiful way to
+              visualize your entrepreneurial Mission of “Work”. See
+              what you are working on, with whom and how well it is
+              going in one simple view and in realtime. Switch
+              between your individual view, the team view and the
+              company view. True North? Your Customer.
+              netwoRHk clarifies and reinforces your company’s top
+              goals to the whole team with ultimate simplicity.
+            </p>
+          </div>
+        </div>
+        <div class="row m-t-3">
+          <div class="col-xs-9 offset-xs-3">
+            <h3>Performance that is all about Teams</h3>
+          </div>
+        </div>
+        <div class="row m-t-1">
+          <div class="col-xs-3">
+            <p class="health-engine">
+              Healthy
+              <object class="illustration"><%= svg['health-engine-good'] %></object>
+              <br>
+              Unhealthy
+              <object class="illustration"><%= svg['health-engine-bad'] %></object>
+            </p>
+          </div>
+          <div class="col-xs-9">
+            <p>
+              netwoRHk’s HealthEngine asks every team-member
+              to take a few minutes once a week to check-in their
+              contributions and keep your team up to date. If only
+              one in the team sets the status to red, the entire
+              team’s status is red - encouraging constant
+              alignement.
+            </p>
+          </div>
+        </div>
+        <div class="row m-t-3">
+          <div class="col-xs-9 offset-xs-3">
+            <h3>Real bottom-line entrepreneuership</h3>
+            <p>
+              netwoRHk allows you to set numerical targets, to
+              track them, update and aggregate them.
+            </p>
+            <img src="/img/netwoRHk-progress-form.jpg" alt="netwoRHk progress form" width="1261" height="525" style="height: auto; margin: 1rem 0;">
+          </div>
+        </div>
+        <div class="row hidden-sm-up">
+          <div class="col-xs-3">
+            <div class="networhk-integrations">
+              <object class="illustration"><%= svg['slack'] %></object>
+              <object class="illustration"><%= svg['jira'] %></object>
+              <object class="illustration"><%= svg['trello'] %></object>
+            </div>
+          </div>
+          <div class="col-xs-9">
+            <p>
+              Along with a seamless integration into world-class
+              collaboration tools, netwoRHk is your top-layer for
+              100% Entrepreneurship and 0% Bureaucracy
+            </p>
+          </div>
+        </div>
+        <div class="row m-t-3">
+          <div class="col-xs-9 offset-xs-3">
+            <h3>A Marketplace of Contributions</h3>
+            <p>
+              Have spare capacity to help your colleagues? Want to
+              learn new skills? With netwoRHk’s marketplace you
+              can search for open contributions and apply to help
+              other teams, anywhere. Contribute. Succeed. Repeat.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <img src="/img/netwoRHk-marketplace.jpg" alt="Screenshot of the netwoRHk marketplace" width="1280" height="737" style="height: auto; margin: 1rem 0;">
+          </div>
+        </div>
+        <div class="row m-t-3">
+          <div class="col-xs-9 offset-xs-3">
+            <h3>Yeah. You can Time-Travel.</h3>
+            <p>
+              Marty McFly approves! With time-travel you can build ever better
+              teams by easily scrolling back in time to map visually how
+              commercial relationships evolved. How an innovative project caught
+              fire. See which teams succeeded, which failed. Analyse how the
+              health status changed. Did you start of strong, but hit a snag? Or do
+              you experience downers in the middle of a contribution?  
+            </p>
+          </div>
+        </div>
+        <div class="row m-t-1">
+          <div class="col-xs-12">
+            <div id="timetravel-video-mobile" class="playable-video" data-vide-bg="https://s3.eu-central-1.amazonaws.com/rh-web-assets/videos/timetravel-web" data-vide-options="posterType: jpg, autoplay: false, loop: false">
+              <div class="play-overlay">
+                <i class="ion ion-ios-play-outline control" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-t-1">
+          <div class="col-xs-9 offset-xs-3">
+            <p>
+              The most awesome thing about time-travel? You can also go forward
+              in time!
+            </p>
+          </div>
+        </div>
+        <div class="row m-t-3">
+          <div class="col-xs-9 offset-xs-3">
+            <h3>Simple</h3>
+            <p>
+              Top-Down Goals evolve into Customer-centric Peer Commitments
+            </p>
+          </div>
+        </div>
+        <div class="row m-t-1">
+          <div class="col-xs-12">
+            <div class="bad-to-good">
+              <object class="illustration"><%= svg['goals-to-communities'] %></object>
+            </div>
+          </div>
+        </div>
+        <div class="row m-t-3">
+          <div class="col-xs-9 offset-xs-3">
+            <h3>Social</h3>
+            <p>
+              Individual Targets evolve into Team Targets
+            </p>
+          </div>
+        </div>
+        <div class="row m-t-1">
+          <div class="col-xs-12">
+            <div class="bad-to-good">
+              <object class="illustration"><%= svg['individual-to-team-targets'] %></object>
+            </div>
+          </div>
+        </div>
+        <div class="row m-t-3">
+          <div class="col-xs-9 offset-xs-3">
+            <h3>Realtime</h3>
+            <p>
+              Annual Reviews evolve into 360° Degree Realtime Reviews
+            </p>
+          </div>
+        </div>
+        <div class="row m-t-1 m-b-3">
+          <div class="col-xs-12">
+            <div class="bad-to-good">
+              <object class="illustration"><%= svg['annual-to-realtime-reviews'] %></object>
             </div>
           </div>
         </div>
