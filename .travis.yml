@@ -25,10 +25,10 @@ script:
 - |
   if [ -n "${TRAVIS_TAG}" ]; then
     APP=RH AWS__WEBSITE_BUCKET=2016.resourceful-humans.com make deploy
-    APP=netwoRHk AWS__WEBSITE_BUCKET=product.networhk.net make deploy
+    APP=netwoRHk AWS__WEBSITE_BUCKET=networhk.net make deploy
   fi
 - |
   if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
     APP=RH AWS__WEBSITE_BUCKET=2016.resourceful-humans.com make preview
-    APP=netwoRHk AWS__WEBSITE_BUCKET=product.networhk.net make preview
+    APP=netwoRHk AWS__WEBSITE_BUCKET=networhk.net make preview
   fi
