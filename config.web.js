@@ -15,5 +15,6 @@ module.exports = {
   apiHost: config.get('api_host'),
   webHost: config.get('web_host'),
   baseHref: '/',
-  mimeType: 'application/vnd.resourceful-humans.www.v1+json'
+  mimeType: 'application/vnd.resourceful-humans.www.v1+json',
+  ga: appConfig.ga
 }
