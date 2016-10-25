@@ -36,7 +36,7 @@ $navbarInnerHeight: 40px;
       border-left: 0;
     }
   }
-  .nav-item + .btn {
+  .nav-item + .btn, .btn + .btn {
     margin-left: 1rem;
   }
   .nav-link {
