@@ -2,8 +2,7 @@ sudo: false
 language: node_js
 cache:
   directories:
-  - "~/.yarn"
-  - "~/.nvm"
+  - node_modules
 notifications:
   email: false
   slack:
@@ -13,9 +12,8 @@ node_js:
 - stable
 before_install:
 - pip install --user s3cmd
-- npm install -g yarn
 install:
-- yarn
+- npm install
 addons:
   apt:
     packages:
