@@ -1,0 +1,36 @@
+#tools {
+  background-color: $gray-lightest;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 16px;
+  padding: 4rem 0 8rem 0;
+  *[role=button] {
+    i {
+      font-size: 300%;
+    }
+  }
+  header {
+    margin: 4rem 0 0 0;
+    h2 {
+      font-size: 42px;
+      text-transform: uppercase;
+    }
+    p {
+      font-size: 22px;
+    }
+  }
+  h3 {
+    font-size: 20px;
+  }
+  svg {
+    max-width: 80%;
+    height: 80px;
+  }
+  .good {
+    font-weight: bold;
+  }
+  section {
+    p {
+      font-size: 18px;
+    }
+  }
+}
