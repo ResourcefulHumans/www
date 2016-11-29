@@ -22,8 +22,10 @@ script:
 - npm run lint
 - |
   if [ -n "${TRAVIS_TAG}" ]; then
-    APP=RH AWS__WEBSITE_BUCKET=2016.resourceful-humans.com make deploy
-    APP=netwoRHk AWS__WEBSITE_BUCKET=networhk.net make deploy
+    APP=RH AWS__WEBSITE_BUCKET=2016.resourceful-humans.com make deploy \
+    && curl -X POST --data-urlencode 'payload={"channel":"#homepage","username":"travis","text":"https://resourceful-humans.com/ has been updated to version ${TRAVIS_TAG}!","icon_emoji": ":travis:"}' ${SLACK_HOOK_URL}
+    APP=netwoRHk AWS__WEBSITE_BUCKET=networhk.net make deploy \
+    && curl -X POST --data-urlencode 'payload={"channel":"#homepage","username":"travis","text":"https://networhk.net/ has been updated to version ${TRAVIS_TAG}!","icon_emoji": ":travis:"}' ${SLACK_HOOK_URL}
   fi
 - |
   if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
