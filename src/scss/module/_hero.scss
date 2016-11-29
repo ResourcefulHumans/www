@@ -4,7 +4,7 @@
   height: 100%;
   img.logo {
     width: 50%;
-    @include pull-right();
+    @include float-right();
     margin-top: 2rem;
   }
   section {
@@ -65,7 +65,7 @@
     }
     .vertical-text-slider {
       position: absolute;
-      right: $grid-gutter-width / 2;
+      right: $grid-gutter-width-base / 2;
       color: $body-color;
       text-shadow: 0 2px 4px rgba(invert($body-color), 0.85);
       .good {
