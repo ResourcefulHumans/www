@@ -42,7 +42,7 @@ debug: ## Print variables
 development: ## Build for development environment
 	ENVIRONMENT=development make build
 
-build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) $(htmlbuild) merge_assets ## Build for production environment
+build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) $(htmlbuild) build/index.html merge_assets ## Build for production environment
 
 ACCESS_KEY := $(shell node console config aws:access_key_id)
 SECRET_KEY := $(shell node console config aws:secret_access_key)
@@ -136,13 +136,15 @@ endif
 
 # HTML
 
+build/index.html: $(htmlbuild)
+	cp build/index.$(APP).html build/index.html
+
 build/%.html: src/%.html src/includes/*.html assets/**/img/*.svg
 ifeq ($(ENVIRONMENT),development)
 	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg ./config.web $< $@
 else
 	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg -m ./config.web $< $@
 endif
-	cp build/index.$(APP).html build/index.html
 
 # Assets
 merge_assets: $(assetsrcfiles)
