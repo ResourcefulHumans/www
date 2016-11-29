@@ -8,6 +8,7 @@ require('bootstrap')
 const Navigation = require('./module/navigation')
 const Scroll = require('./module/scroll')
 const TrackLinkClicks = require('./module/track-link-clicks')
+import loadFont from './load-font'
 
 $(() => {
   const $window = $(window)
@@ -18,3 +19,5 @@ $(() => {
   vm.navigation = new Navigation($, $htmlBody, window, document)
   if (typeof ga !== 'undefined') vm.trackLinkClicks = new TrackLinkClicks($, ga)
 })
+
+loadFont('//cloud.typenetwork.com/projects/316/fontface.css')

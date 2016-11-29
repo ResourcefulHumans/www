@@ -12,6 +12,7 @@ const Scroll = require('./module/scroll')
 const TrackLinkClicks = require('./module/track-link-clicks')
 const VerticalTextSlider = require('./module/vertical-text-slider')
 const PlayableVideo = require('./module/playable-video')
+import loadFont from './load-font'
 
 $(() => {
   const $window = $(window)
@@ -49,3 +50,5 @@ $(() => {
     vm.videos.push(new PlayableVideo($, el, typeof ga !== 'undefined' ? ga : undefined))
   })
 })
+
+loadFont('//cloud.typenetwork.com/projects/316/fontface.css')
