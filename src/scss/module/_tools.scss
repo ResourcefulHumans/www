@@ -1,7 +1,6 @@
 #tools {
   background-color: $gray-lightest;
   color: rgba(0, 0, 0, 0.85);
-  font-size: 16px;
   padding: 4rem 0 8rem 0;
   *[role=button] {
     i {
@@ -10,27 +9,33 @@
   }
   header {
     margin: 4rem 0 0 0;
+    svg {
+      max-width: 80%;
+      height: 160px;
+    }
     h2 {
-      font-size: 42px;
-      text-transform: uppercase;
+      @include section-headline();
     }
     p {
-      font-size: 22px;
+      @include section-text(0.65);
     }
-  }
-  h3 {
-    font-size: 20px;
-  }
-  svg {
-    max-width: 80%;
-    height: 80px;
   }
   .good {
     font-weight: bold;
   }
   section {
-    p {
-      font-size: 18px;
+    svg {
+      max-width: 80%;
+      height: 80px;
+    }
+    h3, p {
+      font-size: 85%;
+      line-height: 1.75rem;
+      @include media-breakpoint-up(lg) {
+        line-height: 2.5rem;
+        font-size: 115%;
+      }
+      text-align: justify;
     }
   }
 }
