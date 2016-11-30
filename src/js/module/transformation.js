@@ -26,7 +26,6 @@ TransformationContent.prototype.load = function () {
     })
     .then(payload => {
       self.prItems = payload.items.sort((a, b) => new Date(b.fields.publicationDate).getTime() - new Date(a.fields.publicationDate).getTime())
-      self.prItems.splice(1, 1)
       self.showPage(0)
     })
 }
