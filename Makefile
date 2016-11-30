@@ -111,7 +111,7 @@ build/js/%.js: src/js/%.js src/js/*.js src/js/**/*.js
 
 build/js/%.min.js: build/js/%.js
 ifeq ($(ENVIRONMENT),development)
-	cp -u $< $@
+	cp $< $@
 else
 	./node_modules/.bin/uglifyjs $< -o $@
 endif
@@ -120,8 +120,8 @@ endif
 
 build/fonts: node_modules/font-awesome/fonts/*.* node_modules/ionicons/dist/fonts/*.*
 	mkdir -p build/fonts
-	cp -u node_modules/font-awesome/fonts/*.* build/fonts/
-	cp -u node_modules/ionicons/dist/fonts/*.* build/fonts/
+	cp node_modules/font-awesome/fonts/*.* build/fonts/
+	cp node_modules/ionicons/dist/fonts/*.* build/fonts/
 
 build/css/%.css: src/scss/%.scss src/scss/*.scss src/scss/**/*.scss src/scss/**/**/*.scss build/fonts
 	@mkdir -p $(dir $@)
@@ -129,7 +129,7 @@ build/css/%.css: src/scss/%.scss src/scss/*.scss src/scss/**/*.scss src/scss/**/
 
 build/css/%.min.css: build/css/%.css
 ifeq ($(ENVIRONMENT),development)
-	cp -u $< $@
+	cp $< $@
 else
 	./node_modules/.bin/uglifycss $< > $@
 endif
