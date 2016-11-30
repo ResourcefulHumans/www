@@ -14,6 +14,7 @@ const Scroll = require('./module/scroll')
 const TrackLinkClicks = require('./module/track-link-clicks')
 const PlayableVideo = require('./module/playable-video')
 import loadFont from './load-font'
+import {TransformationContent} from './module/transformation'
 
 $(() => {
   const $window = $(window)
@@ -112,6 +113,10 @@ $(() => {
     $el.on('visibility.visible', resizeHeroVideo)
     vm.videos.push(new PlayableVideo($, el, typeof ga !== 'undefined' ? ga : undefined))
   })
+
+  // Transformation content
+  const transformationContent = new TransformationContent($('#transformation section'), $('#transformation *[role=navigation]'))
+  $('#transformation').on('visibility.visible', transformationContent.load.bind(transformationContent))
 })
 
 loadFont('//cloud.typenetwork.com/projects/316/fontface.css')

@@ -1,0 +1,33 @@
+.slider-navigation {
+  text-align: center;
+  margin-top: 1rem;
+  @include media-breakpoint-up(md) {
+    margin-top: 2rem;
+  }
+  *[role=checkbox] {
+    cursor: pointer;
+    color: rgba($body-color, 0.25);
+    font-size: 115%;
+    @include media-breakpoint-up(sm) {
+      font-size: 100%;
+    }
+    &:focus, &:active, &:hover {
+      text-decoration: none;
+      color: rgba($body-color, 0.5);
+    }
+    *:last-child {
+      display: none;
+    }
+    &[aria-checked=true] {
+      *:first-child {
+        display: none;
+      }
+      *:last-child {
+        display: inline-block;
+      }
+    }
+  }
+  *[role=checkbox] + *[role=checkbox] {
+    margin-left: 0.25rem;
+  }
+}
