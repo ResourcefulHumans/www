@@ -13,7 +13,7 @@ const Navigation = require('./module/navigation')
 const Scroll = require('./module/scroll')
 const TrackLinkClicks = require('./module/track-link-clicks')
 const PlayableVideo = require('./module/playable-video')
-import loadFont from './load-font'
+import loadFont from 'meownica-web-fonts-loader'
 import {TransformationContent} from './module/transformation'
 
 $(() => {
@@ -119,4 +119,5 @@ $(() => {
   $('#transformation').on('visibility.visible', transformationContent.load.bind(transformationContent))
 })
 
-loadFont('//cloud.typenetwork.com/projects/316/fontface.css')
+loadFont('//cloud.typenetwork.com/projects/316/fontface.css', 'font-loaded')
+

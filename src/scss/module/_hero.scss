@@ -103,3 +103,16 @@
     }
   }
 }
+
+// Hide until webfont loaded
+#rhcircle, .hero-video .container {
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+html.font-loaded {
+  #rhcircle, .hero-video .container {
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+  }
+}

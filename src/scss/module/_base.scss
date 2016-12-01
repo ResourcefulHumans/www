@@ -5,9 +5,16 @@ body, html {
 body {
   background: $body-bg;
   @include gradient();
-  font-family: "Agenda Thi Cond", sans-serif;
   font-style: Normal;
   font-weight: Normal;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+html.font-loaded {
+  body {
+    font-family: "Agenda Thi Cond", sans-serif;
+    letter-spacing: 0;
+  }
 }
 
 img {
