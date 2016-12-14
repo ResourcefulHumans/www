@@ -19,6 +19,7 @@ import {TransformationContent} from './module/transformation'
 $(() => {
   const $window = $(window)
   const $htmlBody = $('html, body')
+  const $html = $(document.documentElement)
   require('./module/jquery-visible')($, $window)
   const $body = $(document.body)
   const vm = {}
@@ -40,6 +41,7 @@ $(() => {
     })
   }
   const onResize = () => {
+    if (!$html.hasClass('font-load-complete')) return
     positionRHWayLogo()
   }
   $window.on('resize', onResize)
@@ -117,7 +119,12 @@ $(() => {
   // Transformation content
   const transformationContent = new TransformationContent($('#transformation section'), $('#transformation *[role=navigation]'))
   $('#transformation').on('visibility.visible', transformationContent.load.bind(transformationContent))
+
+  // Load the webfont, and reposition RH logo on load
+  loadFont('//cloud.typenetwork.com/projects/316/fontface.css', 'font-loaded', () => {
+    window.setTimeout(() => {
+      $html.addClass('font-load-complete')
+      onResize()
+    }, 250)
+  })
 })
-
-loadFont('//cloud.typenetwork.com/projects/316/fontface.css', 'font-loaded')
-
