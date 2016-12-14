@@ -52,7 +52,7 @@ VERSION := $(shell node console config version)
 DEPLOY_VERSION := $(shell node console config deployVersion)
 S3_CFG := /tmp/.s3cfg-$(BUCKET)
 
-deploy: ## Deploy to AWS S3
+deploy: guard-WEB_HOST ## Deploy to AWS S3
 	# Build
 	rm -rf build
 	ENVIRONMENT=production make -B build
@@ -150,3 +150,11 @@ endif
 merge_assets: $(assetsrcfiles)
 	cp -r assets/shared/* build/
 	cp -r assets/$(APP)/* build/
+
+# Helpers
+
+guard-%:
+	@ if [ "${${*}}" = "" ]; then \
+		echo "Environment variable $* not set"; \
+		exit 1; \
+	fi
