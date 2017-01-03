@@ -1,5 +1,96 @@
 {
   "name": "Resourceful Humans: turning organisations into entrepreneurial networks",
   "description": "The Way of Resourceful Humans creates a network of autonomous teams to get any meaningful mission done.",
-  "ga": "UA-63038258-3"
+  "ga": "UA-63038258-3",
+  "jsonld": {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Resourceful Humans",
+    "legalName": "Resourceful Humans GmbH",
+    "url": "https://resourceful-humans.com/",
+    "sameAs": [
+      "https://twitter.com/rh_way",
+      "https://www.facebook.com/resourcefulhumans",
+      "https://www.linkedin.com/company/2406108",
+      "https://www.xing.com/companies/resourcefulhumans",
+      "https://vimeo.com/resourcefulhumans",
+      "https://de.pinterest.com/hr2rh/resourceful-humans/",
+      "https://angel.co/resourceful-humans",
+      "https://github.com/ResourcefulHumans",
+      "https://the-way.resourceful-humans.com/"
+    ],
+    "email": "info@resourceful-humans.com",
+    "vatID": "DE295866970",
+    "logo": "https://images.contentful.com/jsz2fojn9br4/50vSMTTjlKkUqW4oU6oquS/1070b63fa30a4408cb3970413f6fea0a/RH-Logo-300dpi.png?w=512",
+    "telephone": "+49-30-45094026",
+    "location": {
+      "@type": "PostalAddress",
+      "addressLocality": "Berlin",
+      "addressRegion": "Berlin",
+      "postalCode": "10713",
+      "streetAddress": "Hohenzollerndamm 36"
+    },
+    "awards": [
+      "Human Resources Excellence Awards 2014"
+    ],
+    "brand": [
+      {
+        "@context": "http://schema.org",
+        "@type": "Service",
+        "name": "The RH-Way",
+        "description": "The RH-Way is the operating model to turn your organisation into an  entrepreneurial network. It creates a network of autonomous teams to get any meaningful mission done.",
+        "logo": "https://images.contentful.com/jsz2fojn9br4/4127dTx0EMmayYoMqGoKYs/2e15591edab40166a62d0c69030cc262/The-Way-Logo-300dpi.png?w=512"
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "Service",
+        "name": "staRHs",
+        "description": "staRHs is the simple, social, realtime tool to share positive recognition! You see someone doing something great, staRHs gives you the means to let them know immediately. The result? People feel good about their contribution, knowing others see and value their efforts. It will motivate them to keep on doing a great job! Same goes for you. Imagine receiving positive feedback anytime for your good work. That’s staRHs - everybody is focused on sharing feedback as part of their normal job.",
+        "logo": "https://images.contentful.com/jsz2fojn9br4/2NBnWi8GnuOw62umwauCky/73cd8cfb9730425b6e728a706a30c33e/staRHs-Logo-300dpi.png?w=512"
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "Service",
+        "name": "caRHds",
+        "description": "Make your next meetings worthwile with caRHds now! Imagine 100% effective meetings with no more excuses about wasted time. caRHds enables everybody’s voice to be heard. No matter if you are physically in the room or joining virtually from half a world away. Simply tap the card and contribute to making the meeting worth your while!",
+        "logo": "https://images.contentful.com/jsz2fojn9br4/4KIJOr726I2osO8eAWIeOo/39bc5085163772b71cf1d59d56012a8b/caRHds-Logo-300dpi.png?w=512",
+        "url": "https://carhds.me/"
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "Service",
+        "name": "netwoRHk",
+        "description": "Performance Management of, for & by networked teams Connect everybody to the Customer. With netwoRHk entrepreneurial teams create contributions and stay aligned with 0% bureaucracy. netwoRHk makes work unbelievably simple. It turns work into a social marketplace for peer commitments. Visualize how your company’s goals are connected, how they’re coming along, and who’s responsible for them.",
+        "logo": "https://images.contentful.com/jsz2fojn9br4/4YpBqwj4WkME8UKkU82W4y/c0c709f957215fe302bdd740fb7de827/netwoRHk-Logo-300dpi.png?w=512",
+        "url": "https://networhk.net/"
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "name": "The Dive",
+        "description": "Go deep on leadership readiness in virtual reality.",
+        "url": "http://thedivegame.com/"
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TVSeries",
+        "name": "Leaders in Cars",
+        "description": "The worlds most maverick leaders in the most amazing cars.",
+        "url": "https://leadersincars.com/"
+      }
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+49-30-45094026",
+        "contactType": "sales",
+        "availableLanguage": [
+          "German",
+          "English",
+          "Spanish",
+          "French"
+        ]
+      }
+    ]
+  }
 }

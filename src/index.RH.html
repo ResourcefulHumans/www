@@ -30,5 +30,8 @@
 <script type="text/javascript" src="/js/<%= data.app %>.min.js?v=<%= data.version %>-<%= data.buildTime %>"></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=reCaptchaLoaded&amp;render=explicit" async defer data-sitekey="6LeOXicTAAAAAHkxMzgL0Fyj6X_RxwrqzjUcKO5z">
 </script>
+<script type="application/ld+json">
+<%= JSON.stringify(data.jsonld) %>
+</script>
 </body>
 </html>

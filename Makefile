@@ -139,7 +139,7 @@ endif
 build/index.html: $(htmlbuild)
 	cp build/index.$(APP).html build/index.html
 
-build/%.html: src/%.html src/includes/*.html assets/**/img/*.svg
+build/%.html: src/%.html src/includes/*.html assets/**/img/*.svg config.*
 ifeq ($(ENVIRONMENT),development)
 	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg ./config.web $< $@
 else
