@@ -134,16 +134,20 @@ else
 	./node_modules/.bin/uglifycss $< > $@
 endif
 
+# Config
+build/config.json: config.*
+	node config.web.js > $@
+
 # HTML
 
 build/index.html: $(htmlbuild)
 	cp build/index.$(APP).html build/index.html
 
-build/%.html: src/%.html src/includes/*.html assets/**/img/*.svg config.*
+build/%.html: src/%.html src/includes/*.html assets/**/img/*.svg build/config.json
 ifeq ($(ENVIRONMENT),development)
-	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg ./config.web $< $@
+	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg build/config.json $< $@
 else
-	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg -m ./config.web $< $@
+	./node_modules/.bin/rheactor-build-views build -s assets/\?\(shared\|$(APP)\)/img/\*.svg -m build/config.json $< $@
 endif
 
 # Assets
