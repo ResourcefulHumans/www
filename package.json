@@ -23,7 +23,7 @@
   "license": "UNLICENSED",
   "homepage": "https://github.com/ResourcefulHumans/www#readme",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.5",
+    "bootstrap": "4.0.0-alpha.5",
     "contentful": "^3.8.1",
     "font-awesome": "^4.7.0",
     "ionicons": "^3.0.0",
