@@ -43,7 +43,7 @@
     "node-sass": "^4.5.0",
     "node-static": "^0.7.8",
     "rheactor-build-views": "^4.0.1",
-    "standard": "^8.6.0",
+    "standard": "^9.0.0",
     "uglifycss": "0.0.25",
     "uglifyjs": "^2.4.10",
     "validate-commit-email": "^1.0.1",
