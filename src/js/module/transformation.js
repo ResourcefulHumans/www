@@ -50,8 +50,8 @@ TransformationContent.prototype.showPage = function (page) {
 
 TransformationContent.prototype.showOrHideEntry = function (page, index) {
   const self = this
-  if (self.prItems[index + self.sections.length * page]) {
-    self.showEntry($(self.sections[index]), self.prItems[index + self.sections.length * page])
+  if (self.prItems[index + (self.sections.length * page)]) {
+    self.showEntry($(self.sections[index]), self.prItems[index + (self.sections.length * page)])
   } else {
     self.hideEntry($(self.sections[index]))
   }
