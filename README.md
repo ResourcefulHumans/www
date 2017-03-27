@@ -18,8 +18,6 @@ For `wwww.networhk.net` a S3 bucket is configured to redirect all request to `ne
 
 The DNS settings for both domains are managed via [Route 53](https://console.aws.amazon.com/route53/home?region=us-east-1#hosted-zones:).
 
-The contact form on the page sends contact requests to the [#_opportunities Slack channel](https://rhway.slack.com/messages/C0JUJ7J3D/) via the [`wwwContactForm`](https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-central-1#/functions/wwwContactForm?tab=code) lambda function whose HTTP endpoint is provided via the [`www-contactform@prod`](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/apis/2sy0mc1zj8/stages/prod) API Gateway stage. 
-
 <table>
 <thead>
 <tr>
@@ -34,6 +32,10 @@ The contact form on the page sends contact requests to the [#_opportunities Slac
 <tr><td> DNS configuration </td><td colspan="2"> <a href="https://console.aws.amazon.com/route53/home?region=us-east-1#resource-record-sets:Z2LAFOE4409T7H"><code>Z2LAFOE4409T7H</code></a> </td><td colspan="2"> <a href="https://console.aws.amazon.com/route53/home?region=us-east-1#resource-record-sets:Z31RXI59NWRVN5"><code>Z31RXI59NWRVN5</code></a> </td></tr>
 </tbody>
 </table>
+
+### Connected Services
+
+The contact form on the page sends contact requests to the [#_opportunities Slack channel](https://rhway.slack.com/messages/C0JUJ7J3D/) via the [`wwwContactForm`](https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-central-1#/functions/wwwContactForm?tab=code) lambda function whose HTTP endpoint is provided via the [`www-contactform@prod`](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/apis/2sy0mc1zj8/stages/prod) API Gateway stage. 
 
 ## Deployment
 
