@@ -8,7 +8,6 @@ This is the source code for resourceful-humans.com and networhk.net.
 
 The designs for both websites are very similiar so this projects is able to deployment both of them.
 
-
 ## Live
 
 The websites are hosted on AWS S3, and served via a CloudFront distribution to provide custom domain names. SSL certificates are provided for free by the [AWS Certificate Manager](https://console.aws.amazon.com/acm/home?region=us-east-1).
@@ -18,6 +17,8 @@ For `wwww.resourceful-humans.com` a S3 bucket and a CloudFront distribution is c
 For `wwww.networhk.net` a S3 bucket is configured to redirect all request to `networhk.net`.
 
 The DNS settings for both domains are managed via [Route 53](https://console.aws.amazon.com/route53/home?region=us-east-1#hosted-zones:).
+
+The contact form on the page sends contact requests to the [#_opportunities Slack channel](https://rhway.slack.com/messages/C0JUJ7J3D/) via the [`wwwContactForm`](https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-central-1#/functions/wwwContactForm?tab=code) lambda function whose HTTP endpoint is provided via the [`www-contactform@prod`](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/apis/2sy0mc1zj8/stages/prod) API Gateway stage. 
 
 <table>
 <thead>
@@ -34,6 +35,25 @@ The DNS settings for both domains are managed via [Route 53](https://console.aws
 </tbody>
 </table>
 
+## Deployment
+
+:rocket: Deployment for this package is automated via [Travis CI](https://github.com/ResourcefulHumans/www/blob/master/.travis.yml).
+
+If *lint* is run without an error, and Travis is building a tag, `make deploy` will be executed to publish the RH and netwoRHk websites.
+
+It uses these environment variables (which are [provided via Travis](https://travis-ci.org/ResourcefulHumans/www/settings)):
+
+ * `API_HOST`  
+   The endpoint for the contact form submissions
+ * `AWS__ACCESS_KEY_ID`  
+   The AWS access key to use
+ * `AWS__SECRET_ACCESS_KEY`  
+   The AWS secret access key to use
+
+The AWS credentials for Travis are taken from the [`travis-ci`](https://console.aws.amazon.com/iam/home?region=eu-central-1#/users/travis-ci) user.
+     
+You can create new AWS keys via [IAM](https://console.aws.amazon.com/iam/home?region=eu-central-1). Assign the new user to the groups [`www`](https://console.aws.amazon.com/iam/home?region=eu-central-1#/groups/www?section=permissions) and [`networhk`](https://console.aws.amazon.com/iam/home?region=eu-central-1#/groups/networhk?section=permissions) which have the neccessary permission to update S3.
+
 ## Preview
 
-For every PR a preview instance is created.
+If Travis is building a pull request, a preview instance will be created. This is achieved by create an new S3 bucket with the PRs number. The `make preview` task will publish the URL in the PRs comments, [like this](https://github.com/ResourcefulHumans/www/pull/4#issuecomment-254817438).
