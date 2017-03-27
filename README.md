@@ -37,7 +37,7 @@ The DNS settings for both domains are managed via [Route 53](https://console.aws
 
 The contact form on the page sends contact requests to the [#_opportunities Slack channel](https://rhway.slack.com/messages/C0JUJ7J3D/) via the [`wwwContactForm`](https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-central-1#/functions/wwwContactForm?tab=code) lambda function whose HTTP endpoint is provided via the [`www-contactform@prod`](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/apis/2sy0mc1zj8/stages/prod) API Gateway stage. 
 
-## Deployment
+### Deployment
 
 :rocket: Deployment for this package is automated via [Travis CI](https://github.com/ResourcefulHumans/www/blob/master/.travis.yml).
 
