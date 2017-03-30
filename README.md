@@ -39,7 +39,8 @@ The contact form on the page sends contact requests to the [#_opportunities Slac
 
 ### Deployment
 
-:rocket: Deployment for this package is automated via [Travis CI](https://github.com/ResourcefulHumans/www/blob/master/.travis.yml).
+:rocket: Deployment for this package is automated via [Travis CI](https://github.com/ResourcefulHumans/www/blob/master/.travis.yml).  
+**Every commit can potentially trigger a deploy.**
 
 If *lint* is run without an error, and Travis is building a tag, `make deploy` will be executed to publish the RH and netwoRHk websites.
 
