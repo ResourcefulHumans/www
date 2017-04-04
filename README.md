@@ -44,14 +44,14 @@ The contact form on the page sends contact requests to the [#_opportunities Slac
 
 If *lint* is run without an error, and Travis is building a tag, `make deploy` will be executed to publish the RH and netwoRHk websites. Travis [provides the environment variable `TRAVIS_TAG`](https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables) which is used to determine if a tag is built.
 
-It uses these environment variables (which are [provided via Travis](https://travis-ci.org/ResourcefulHumans/www/settings)):
+It uses [`s3cmd`](http://s3tools.org/s3cmd) to publish the build to S3. `s3cmd` uses [the standard AWS environment variables](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-environment) for authentication.  They and the `API_ENDPOINT` environment variables are required:
 
- * `API_HOST`  
-   The endpoint for the contact form submissions
- * `AWS__ACCESS_KEY_ID`  
+ * `AWS_ACCESS_KEY_ID`  
    The AWS access key to use
- * `AWS__SECRET_ACCESS_KEY`  
+ * `AWS_SECRET_ACCESS_KEY`  
    The AWS secret access key to use
+ * `API_ENDPOINT`  
+   The endpoint for the contact form submissions
 
 The AWS credentials for Travis are taken from the [`travis-ci`](https://console.aws.amazon.com/iam/home?region=eu-central-1#/users/travis-ci) user.
      

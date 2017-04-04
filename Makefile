@@ -44,15 +44,12 @@ development: ## Build for development environment
 
 build: $(cssminified) $(cssrcfiles) $(jsminified) $(jssrcfiles) $(htmlbuild) build/index.html merge_assets ## Build for production environment
 
-ACCESS_KEY := $(shell node console config aws:access_key_id)
-SECRET_KEY := $(shell node console config aws:secret_access_key)
-BUCKET ?= $(shell node console config aws:website_bucket)
-REGION := $(shell node console config aws:region)
-VERSION := $(shell node console config version)
-DEPLOY_VERSION := $(shell node console config deployVersion)
-S3_CFG := /tmp/.s3cfg-$(BUCKET)
+AWS_REGION ?= "eu-central-1"
+VERSION ?= $(shell /usr/bin/env node -e "console.log(require('./package.json').version);")
+DEPLOY_VERSION ?= $(shell date +%s)
+S3_CFG := /tmp/.s3cfg-$(AWS_BUCKET)
 
-deploy: guard-WEB_HOST ## Deploy to AWS S3
+deploy: guard-WEB_HOST guard-AWS_ACCESS_KEY_ID guard-AWS_SECRET_ACCESS_KEY guard-AWS_BUCKET ## Deploy to AWS S3
 	# Build
 	rm -rf build
 	ENVIRONMENT=production make -B build
@@ -61,21 +58,21 @@ deploy: guard-WEB_HOST ## Deploy to AWS S3
 	# Create s3cmd config
 	@echo $(S3_CFG)
 	@echo "[default]" > $(S3_CFG)
-	@echo "access_key = $(ACCESS_KEY)" >> $(S3_CFG)
-	@echo "secret_key = $(SECRET_KEY)" >> $(S3_CFG)
-	@echo "bucket_location = $(REGION)" >> $(S3_CFG)
+	@echo "access_key = $(AWS_ACCESS_KEY_ID)" >> $(S3_CFG)
+	@echo "secret_key = $(AWS_SECRET_ACCESS_KEY)" >> $(S3_CFG)
+	@echo "bucket_location = $(AWS_REGION)" >> $(S3_CFG)
 
 	# Create bucket if not exists
-	@if [[ `s3cmd -c $(S3_CFG) ls | grep s3://$(BUCKET) | wc -l` -eq 1 ]]; then \
+	@if [[ `s3cmd -c $(S3_CFG) ls | grep s3://$(AWS_BUCKET) | wc -l` -eq 1 ]]; then \
 		echo "Bucket exists"; \
 	else \
-		s3cmd -c $(S3_CFG) mb s3://$(BUCKET); \
-		s3cmd -c $(S3_CFG) ws-create s3://$(BUCKET)/ --ws-index=index.html --ws-error=404.html; \
+		s3cmd -c $(S3_CFG) mb s3://$(AWS_BUCKET); \
+		s3cmd -c $(S3_CFG) ws-create s3://$(AWS_BUCKET)/ --ws-index=index.html --ws-error=404.html; \
 	fi
 
 	# Upload
 	s3cmd -c $(S3_CFG) \
-		sync -P -M --no-mime-magic --delete-removed ./build/ s3://$(BUCKET)/
+		sync -P -M --no-mime-magic --delete-removed ./build/ s3://$(AWS_BUCKET)/
 	# Expires 10 minutes for html files
 	s3cmd -c $(S3_CFG) \
 		modify --recursive \
@@ -83,7 +80,7 @@ deploy: guard-WEB_HOST ## Deploy to AWS S3
 		--remove-header=Expires \
 		--add-header=x-amz-meta-version:$(VERSION)-$(DEPLOY_VERSION) \
 		--exclude "*" --include "*.html" --include "*.txt" \
-		s3://$(BUCKET)/
+		s3://$(AWS_BUCKET)/
 
 	# Expires 1 year for everything else
 	s3cmd -c $(S3_CFG) \
@@ -92,13 +89,13 @@ deploy: guard-WEB_HOST ## Deploy to AWS S3
 		--remove-header=Expires \
 		--add-header=x-amz-meta-version:$(VERSION)-$(DEPLOY_VERSION) \
 		--exclude "*.html" --exclude "*.txt" \
-		s3://$(BUCKET)/
+		s3://$(AWS_BUCKET)/
 
 preview: ## Deploy to preview
-	BUCKET=$(TRAVIS_PULL_REQUEST).pr.$(BUCKET) WEB_HOST=http://$(TRAVIS_PULL_REQUEST).pr.$(BUCKET).s3-website.eu-central-1.amazonaws.com make -B deploy
+	AWS_BUCKET=$(TRAVIS_PULL_REQUEST).pr.$(AWS_BUCKET) WEB_HOST=http://$(TRAVIS_PULL_REQUEST).pr.$(AWS_BUCKET).s3-website.eu-central-1.amazonaws.com make -B deploy
 	@curl -s -H "Content-Type: application/json" \
 		-H "Authorization: token $(GITHUB_TOKEN)" \
-		--data '{"body":":arrows_counterclockwise: Preview published to http://$(TRAVIS_PULL_REQUEST).pr.$(BUCKET).s3-website.eu-central-1.amazonaws.com/"}' \
+		--data '{"body":":arrows_counterclockwise: Preview published to http://$(TRAVIS_PULL_REQUEST).pr.$(AWS_BUCKET).s3-website.eu-central-1.amazonaws.com/"}' \
 		https://api.github.com/repos/$(TRAVIS_REPO_SLUG)/issues/$(TRAVIS_PULL_REQUEST)/comments > /dev/null
 
 help: ## (default), display the list of make commands

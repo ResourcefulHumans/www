@@ -13,10 +13,7 @@ nconf
       'host',
       'port',
       'web_host',
-      'api_host',
-      'aws__access_key_id',
-      'aws__secret_access_key',
-      'aws__website_bucket'
+      'api_endpoint'
     ],
     lowerCase: true,
     separator: '__'
@@ -31,11 +28,8 @@ nconf.defaults({
   'environment': 'development',
   'port': port,
   'host': host,
-  'api_host': 'http://' + host + ':' + port,
-  'web_host': 'http://' + host + ':' + port,
-  'aws': {
-    'region': 'eu-central-1'
-  }
+  'api_endpoint': 'http://' + host + ':' + port,
+  'web_host': 'http://' + host + ':' + port
 })
 
 module.exports = nconf

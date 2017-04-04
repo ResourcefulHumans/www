@@ -21,11 +21,11 @@ script:
 - npm run lint
 - |
   if [ -n "${TRAVIS_TAG}" ]; then
-    APP=RH WEB_HOST=https://resourceful-humans.com AWS__WEBSITE_BUCKET=2016.resourceful-humans.com make deploy
-    APP=netwoRHk WEB_HOST=https://networhk.net AWS__WEBSITE_BUCKET=networhk.net make deploy
+    APP=RH WEB_HOST=https://resourceful-humans.com AWS_BUCKET=2016.resourceful-humans.com make deploy
+    APP=netwoRHk WEB_HOST=https://networhk.net AWS_BUCKET=networhk.net make deploy
   fi
 - |
   if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
-    APP=RH AWS__WEBSITE_BUCKET=2016.resourceful-humans.com make preview
-    APP=netwoRHk AWS__WEBSITE_BUCKET=networhk.net make preview
+    APP=RH AWS_BUCKET=2016.resourceful-humans.com make preview
+    APP=netwoRHk AWS_BUCKET=networhk.net make preview
   fi
