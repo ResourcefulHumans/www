@@ -1,14 +1,12 @@
-'use strict'
-
 /* global window, document, ga */
 
+import loadFont from 'meownica-web-fonts-loader'
 const $ = require('jquery')
 require('tether')
 require('bootstrap')
 const Navigation = require('./module/navigation')
 const Scroll = require('./module/scroll')
 const TrackLinkClicks = require('./module/track-link-clicks')
-import loadFont from 'meownica-web-fonts-loader'
 
 $(() => {
   const $window = $(window)

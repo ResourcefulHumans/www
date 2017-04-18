@@ -1,7 +1,5 @@
-'use strict'
-
-const $ = require('jquery')
 import {createClient} from 'contentful'
+const $ = require('jquery')
 
 export function TransformationContent (sections, nav) {
   const self = this

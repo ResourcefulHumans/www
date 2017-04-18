@@ -1,7 +1,7 @@
-'use strict'
-
 /* global window, document, alert, grecaptcha, ga */
 
+import loadFont from 'meownica-web-fonts-loader'
+import {TransformationContent} from './module/transformation'
 const $ = require('jquery')
 require('tether')
 require('bootstrap')
@@ -13,8 +13,6 @@ const Navigation = require('./module/navigation')
 const Scroll = require('./module/scroll')
 const TrackLinkClicks = require('./module/track-link-clicks')
 const PlayableVideo = require('./module/playable-video')
-import loadFont from 'meownica-web-fonts-loader'
-import {TransformationContent} from './module/transformation'
 
 $(() => {
   const $window = $(window)
