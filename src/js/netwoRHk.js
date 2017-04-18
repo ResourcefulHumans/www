@@ -1,5 +1,6 @@
 /* global window, document, ga */
 
+import 'babel-polyfill'
 import loadFont from 'meownica-web-fonts-loader'
 const $ = require('jquery')
 require('tether')

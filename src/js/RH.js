@@ -1,5 +1,6 @@
 /* global window, document, alert, grecaptcha, ga */
 
+import 'babel-polyfill'
 import loadFont from 'meownica-web-fonts-loader'
 import {TransformationContent} from './module/transformation'
 const $ = require('jquery')
