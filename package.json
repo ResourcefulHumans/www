@@ -45,7 +45,7 @@
     "node-static": "^0.7.8",
     "rheactor-build-views": "^4.0.1",
     "standard": "^10.0.2",
-    "uglifycss": "0.0.25",
+    "uglifycss": "0.0.26",
     "uglifyjs": "^2.4.10",
     "validate-commit-email": "^1.0.1",
     "validate-commit-msg": "^2.12.1"
