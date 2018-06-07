@@ -5,21 +5,33 @@ main {
     @include media-breakpoint-up(lg) {
       margin-top: 8rem;
       margin-bottom: 8rem;
+
+      &.middle {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+      }
     }
   }
-  h1, h2 {
+  h1,
+  h2 {
     text-transform: uppercase;
   }
   h1 {
     font-size: 150%;
   }
-  h2, h3 {
+  h2,
+  h3 {
     font-size: 125%;
+  }
+  h4 {
+    font-size: 100%;
   }
   a {
     color: $body-color;
     border-bottom: 1px dotted rgba($body-color, 0.5);
-    &:hover, &:active, &:focus {
+    &:hover,
+    &:active,
+    &:focus {
       text-decoration: none;
       color: darken($body-color, 10%);
       border-color: rgba(darken($body-color, 10%), 0.5);
