@@ -39,7 +39,7 @@
     "babelify": "^7.3.0",
     "browserify": "^14.3.0",
     "browserify-shim": "^3.8.14",
-    "husky": "^0.13.3",
+    "husky": "^2.7.0",
     "nconf": "^0.8.4",
     "node-sass": "^4.5.2",
     "node-static": "^0.7.8",
